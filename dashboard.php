@@ -1,6 +1,6 @@
 <?php
 //include auth_session.php file on all user panel pages
-include("auth_session.php");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,9 +11,8 @@ include("auth_session.php");
 </head>
 <body>
     <div class="form">
-        <p>Hey, <?php echo $_SESSION['username']; ?>!</p>
+        <p>Hey, user!</p>
         <p>You are now logged into the user dashboard page.</p>
-        <p><a href="logout.php">Logout</a></p>
         <hr>
     </div>
     
