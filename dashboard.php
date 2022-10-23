@@ -21,7 +21,8 @@
     <div>
 
         <form method="post">
-            <p>SQL Query: <input type="text" name="SQL" /></p>
+            <p>SQL Query: <input type="text" name="SQL" style="height:220px" />
+            </p>
             <p><input type="submit" /></p>
         </form>
 
@@ -39,7 +40,7 @@
             </tr>
             <?php
     require('db.php');
-    if($_POST['SQL'] == ""){
+    if($_POST['SQL'] == null){
         $sql = "select * from restaurants";
     }
     else{
