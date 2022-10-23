@@ -9,8 +9,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <title>Lab Assignment 5 PHP</title>
     </head>
     <body>
-        <h1> Bryce Hendrickson Lab 5 Login System with mysql</h1>
-        <p> Please direct youself to the login system to login to the dashboard </p>
-     <a href="./login.php">Login</a>
+        <h1> Bryce H. & Marissa S. CS360 research project</h1>
+        <p> Please direct youself to the SQL dashboard </p>
+     <a href="./dashboard.php">Dashboard</a>
     </body>
 </html>

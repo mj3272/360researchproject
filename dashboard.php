@@ -20,59 +20,44 @@ include("auth_session.php");
 <div>
 
 
-<?php
-require('db.php');
-if(isset($_POST['submitDeleteBtn'])){
-    $key = $_POST['KeyToDelete'];
 
-    //check if the record exists to delete
-
-    $check = $con->query("select * from users where id = '$key'");
-    if(mysqli_num_rows($check)>0){
-        //record found & now deleting
-        $queryDelete = $con->query("DELETE from users where id = '$key'");
-    }
-    else{
-        //warning that record does not exist?>
-    <div>
-        <p>Record does not exist!</p>
-    </div>
-
-    <?php }
-}
-?>
 
     <table>
         <tr>
-            <th>Id</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Delete?</th>
+            <th>TiD</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Cuisine</th>
+            <th>Rating</th>
+            <th>Price</th>
+            <th>Dining</th>
 
 </tr>
     <?php
     require('db.php');
-    $sql = "select * from users";
+    $sql = "select * from restaurants";
     $result = $con->query($sql);
     $sr =1;
 
+   
     while($row = $result->fetch_assoc()){?>
     <tr>
         <form action="" method="post" role="form">
             <td><?php echo $sr;?></td>
-            <td><?php echo $row['username'];?></td>
-            <td><?php echo $row['email'];?></td>
-            <td>    
-                <input type="checkbox" name ="KeyToDelete" value="<?php echo $row['id'];?>" required>
-             </td>
-             <td>
-                <input type="submit" name="submitDeleteBtn">
-             </td>
+            <td><?php echo $row['Name'];?></td>
+            <td><?php echo $row['Location'];?></td>
+            <td><?php echo $row['Cuisine'];?></td>
+            <td><?php echo $row['Rating'];?></td>
+            <td><?php echo $row['Price'];?></td>
+            <td><?php echo $row['Dining'];?></td>
+            
         </form>
     </tr>
         <?php $sr++; }
         ?>
 </table>
+
+
 </div>
 
 
@@ -82,3 +67,19 @@ if(isset($_POST['submitDeleteBtn'])){
     
 </body>
 </html>
+
+<!--
+sql statement to create table
+
+CREATE TABLE IF NOT EXISTS restaurants (
+ TiD int(11) NOT NULL AUTO_INCREMENT,
+ Name varchar(50) NOT NULL,
+    Location varchar(50) NOT NULL,
+    Cuisine varchar(50) NOT NULL,
+ Rating varchar(5) NOT NULL,
+ Price varchar(50) NOT NULL,
+ Dining varchar(50) NOT NULL,
+ PRIMARY KEY (TiD)
+);
+
+--!>
