@@ -39,7 +39,14 @@
             </tr>
             <?php
     require('db.php');
-    $sql = $_POST['SQL'];
+    if($_POST['SQL'] == ""){
+        $sql = "select * from restaurants";
+    }
+    else{
+        $sql = $_POST['SQL'];
+    }
+   
+
     $result = $con->query($sql);
     $sr =1;
 
