@@ -6,7 +6,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Lab Assignment 5 PHP</title>
+        <title>Research Assignment</title>
     </head>
     <body>
         <h1> Bryce H. & Marissa S. CS360 research project</h1>
