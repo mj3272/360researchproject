@@ -1,6 +1,6 @@
 <?php
-//include auth_session.php file on all user panel pages
-
+//include all query where operations
+include("QueryEnums.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,20 +13,86 @@
 
 <body>
     <div class="form">
-        <p>Hey, user!</p>
-        <p>You are now logged into the user dashboard page.</p>
-        <hr>
+        <h1>Welcome to the ConSQL dashboard page.<h1>
+                <hr>
     </div>
 
     <div>
 
         <form method="post">
-            <p>SQL Query: <input type="text" name="SQL" style="height:220px" />
+            <p>SQL Query: <input type="text" name="SQL" style="width:100%" />
+                <input type="submit" />
             </p>
-            <p><input type="submit" /></p>
+
         </form>
 
+        <hr>
 
+        <form method="post">
+            <label for="location">Location:</label>
+            <select id="location" name="location">
+                <option selected="selected" value="*">
+                    Any
+                </option>
+                <option value=QueryWhere::LocationMoscow>Moscow</option>
+                <option value=QueryWhere::LocationArlington>Arlington</option>
+                <option value=QueryWhere::LocationPullman>Pullman</option>
+                <option value=QueryWhere::LocationSpokane>Spokane</option>
+
+            </select>
+
+            <label for="cuisine">Cuisine:</label>
+            <select id="cuisine" name="cuisine">
+                <option selected="selected" value="*">
+                    Any
+                </option>
+                <option value=QueryWhere::CuisineVietnamese>Vietnamese</option>
+                <option value=QueryWhere::CuisineKorean>Korean</option>
+                <option value=QueryWhere::CuisinePakistani>Pakistani</option>
+                <option value=QueryWhere::CuisineTibetan>Tibetan</option>
+
+            </select>
+
+            <label for="rating">Rating:</label>
+            <select id="rating" name="rating">
+                <option selected="selected" value="*">
+                    Any
+                </option>
+                <option value=QueryWhere::Rating1>*</option>
+                <option value=QueryWhere::Rating2>**</option>
+                <option value=QueryWhere::Rating3>***</option>
+                <option value=QueryWhere::Rating4>****</option>
+                <option value=QueryWhere::Rating5>*****</option>
+
+            </select>
+
+            <label for="price">Price:</label>
+            <select id="price" name="price">
+                <option selected="selected" value="*">
+                    Any
+                </option>
+                <option value=QueryWhere::PriceInexpensive>Inexpensive</option>
+                <option value=QueryWhere::PriceModerate>Moderate</option>
+                <option value=QueryWhere::PriceExpensive>Expensive</option>
+                <option value=QueryWhere::PriceVeryExpensive>VeryExpensive</option>
+
+            </select>
+
+            <label for="dining">Dining:</label>
+            <select id="dining" name="dining">
+                <option selected="selected" value="*">
+                    Any
+                </option>
+                <option value=QueryWhere::DiningCarryout>Carryout</option>
+                <option value=QueryWhere::DiningPremise>Premise</option>
+                <option value=QueryWhere::DiningBoth>Both</option>
+
+            </select>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <hr>
         <table>
             <tr>
                 <th>TiD</th>
@@ -40,12 +106,15 @@
             </tr>
             <?php
     require('db.php');
-    if($_POST['SQL'] == null){
-        $sql = "select * from restaurants";
-    }
-    else{
+
+
+    
+    $sql = "select * from restaurants";
+    if(isset($_POST['SQL']) && $_POST['SQL'] != null){
+        
         $sql = $_POST['SQL'];
     }
+
    
 
     $result = $con->query($sql);
