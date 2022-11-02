@@ -7,6 +7,7 @@ CREATE TABLE restaurants(
         Location VARCHAR(50),
         Cuisine VARCHAR(50),
         Rating VARCHAR(5),
+        Price VARCHAR(50),
         Dining VARCHAR(50),
         PRIMARY KEY(ID)
 );
