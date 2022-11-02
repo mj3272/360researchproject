@@ -17,7 +17,7 @@ INSERT INTO
         restaurants(Name, Location, Cuisine, Rating, Price, Dining)
 VALUES
         ('Pho Heaven', 'Moscow', 'Vietnamese', '*', 'Inexpensive', 'Carryout'),
-        ('Hot Pot', 'Moscow', 'Korean', '****', 'Very Expensive', 'Premise'),
+        ('Hot Pot', 'Moscow', 'Korean', '****', 'VeryExpensive', 'Premise'),
         ('Ao Dai', 'Pullman', 'Vietnamese', '*****', 'Moderate', 'Both'),
         ('Ravi Kabob', 'Arlington', 'Pakistani', '*****', 'Inexpensive', 'Both'),
         ('Little Tibet', 'Spokane', 'Tibetan', '*****', 'Expensive', 'Both'),
@@ -29,12 +29,12 @@ VALUES
         ('Tomato Avenue', 'Coeur dAlene', 'Italian', '*****', 'Moderate', 'Both'),
         ('Texas Streethome', 'Lewiston', 'BBQ', '****', 'Moderate', 'Premise'),
         ('Freddy Fazbear Pizza', 'Post Falls', 'American', '*', 'Expenisive', 'Premise'),
-        ('Bear Express', 'Hayden', 'Chinese', '***', 'Very Expenisve', 'Both'),
+        ('Bear Express', 'Hayden', 'Chinese', '***', 'VeryExpensive', 'Both'),
         ('Bluebird Cafe', 'Post Falls', 'French', '**', 'Inexpensive', 'Premise'),
-        ('Spaghetti Bros', 'Spokane', 'Italian', '*****', 'Very Expensive', 'Carryout'),
+        ('Spaghetti Bros', 'Spokane', 'Italian', '*****', 'VeryExpensive', 'Carryout'),
         ('Two Planets Cafe', 'Mosocw', 'French', '*', 'Expensive', 'Premise'),
         ('Felipes Tacos', 'Spokane', 'Mexican', '***', 'Moderate', 'Carryout'),
-        ('Jalapenos', 'Lewiston', 'Mexican', '****', 'Very Expenisve', 'Premise'),
+        ('Jalapenos', 'Lewiston', 'Mexican', '****', 'VeryExpensive', 'Premise'),
         ('Noodle House', 'Post Falls', 'Korean', '*','Moderate', 'Both'),
         ('Jays BBQ', 'Hayden', 'BBQ', '*', 'Inexpensive', 'Premise');
         

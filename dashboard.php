@@ -31,7 +31,7 @@ include("QueryEnums.php");
         <form method="post">
             <label for="location">Location:</label>
             <select id="location" name="location">
-                <option selected="selected" value="*">
+                <option selected="selected" value="">
                     Any
                 </option>
                 <option value=<?php echo QueryWhere::LocationMoscow?>>Moscow</option>
@@ -43,49 +43,49 @@ include("QueryEnums.php");
 
             <label for="cuisine">Cuisine:</label>
             <select id="cuisine" name="cuisine">
-                <option selected="selected" value="*">
+                <option selected="selected" value="">
                     Any
                 </option>
-                <option value=QueryWhere::CuisineVietnamese>Vietnamese</option>
-                <option value=QueryWhere::CuisineKorean>Korean</option>
-                <option value=QueryWhere::CuisinePakistani>Pakistani</option>
-                <option value=QueryWhere::CuisineTibetan>Tibetan</option>
+                <option value=<?php echo QueryWhere::CuisineVietnamese?>>Vietnamese</option>
+                <option value=<?php echo QueryWhere::CuisineKorean?>>Korean</option>
+                <option value=<?php echo QueryWhere::CuisinePakistani?>>Pakistani</option>
+                <option value=<?php echo QueryWhere::CuisineTibetan?>>Tibetan</option>
 
             </select>
 
             <label for="rating">Rating:</label>
             <select id="rating" name="rating">
-                <option selected="selected" value="*">
+                <option selected="selected" value="">
                     Any
                 </option>
-                <option value=QueryWhere::Rating1>*</option>
-                <option value=QueryWhere::Rating2>**</option>
-                <option value=QueryWhere::Rating3>***</option>
-                <option value=QueryWhere::Rating4>****</option>
-                <option value=QueryWhere::Rating5>*****</option>
+                <option value=<?php echo QueryWhere::Rating1?>>*</option>
+                <option value=<?php echo QueryWhere::Rating2?>>**</option>
+                <option value=<?php echo QueryWhere::Rating3?>>***</option>
+                <option value=<?php echo QueryWhere::Rating4?>>****</option>
+                <option value=<?php echo QueryWhere::Rating5?>>*****</option>
 
             </select>
 
             <label for="price">Price:</label>
             <select id="price" name="price">
-                <option selected="selected" value="*">
+                <option selected="selected" value="">
                     Any
                 </option>
-                <option value=QueryWhere::PriceInexpensive>Inexpensive</option>
-                <option value=QueryWhere::PriceModerate>Moderate</option>
-                <option value=QueryWhere::PriceExpensive>Expensive</option>
-                <option value=QueryWhere::PriceVeryExpensive>VeryExpensive</option>
+                <option value=<?php echo QueryWhere::PriceInexpensive?>>Inexpensive</option>
+                <option value=<?php echo QueryWhere::PriceModerate?>>Moderate</option>
+                <option value=<?php echo QueryWhere::PriceExpensive?>>Expensive</option>
+                <option value=<?php echo QueryWhere::PriceVeryExpensive?>>VeryExpensive</option>
 
             </select>
 
             <label for="dining">Dining:</label>
             <select id="dining" name="dining">
-                <option selected="selected" value="*">
+                <option selected="selected" value="">
                     Any
                 </option>
-                <option value=QueryWhere::DiningCarryout>Carryout</option>
-                <option value=QueryWhere::DiningPremise>Premise</option>
-                <option value=QueryWhere::DiningBoth>Both</option>
+                <option value=<?php echo QueryWhere::DiningCarryout?>>Carryout</option>
+                <option value=<?php echo QueryWhere::DiningPremise?>>Premise</option>
+                <option value=<?php echo QueryWhere::DiningBoth?>>Both</option>
 
             </select>
             <br>
@@ -110,8 +110,56 @@ include("QueryEnums.php");
 
     
     $sql = "select * from restaurants";
+    $whereCount = 0;
+    //setting query from form
+    if(isset($_POST['location']) && $_POST['location'] != null)
+    {
+        $whereCount++;
+            $sql = $sql . " where " . $_POST['location'];
+    }
+    if(isset($_POST['cuisine']) && $_POST['cuisine'] != null)
+    {
+        if($whereCount ==0){
+            $whereCount++;
+            $sql = $sql . " where " . $_POST['cuisine'];
+        }
+        else{
+            $sql = $sql . " and " . $_POST['cuisine'];
+        }
+    }
+    if(isset($_POST['rating']) && $_POST['rating'] != null)
+    {
+        if($whereCount ==0){
+            $whereCount++;
+            $sql = $sql . " where " . $_POST['rating'];
+        }
+        else{
+            $sql = $sql . " and " . $_POST['rating'];
+        }
+    }
+    if(isset($_POST['price']) && $_POST['price'] != null)
+    {
+        if($whereCount ==0){
+            $whereCount++;
+            $sql = $sql . " where " . $_POST['price'];
+        }
+        else{
+            $sql = $sql . " and " . $_POST['price'];
+        }
+    }
+    if(isset($_POST['dining']) && $_POST['dining'] != null)
+    {
+        if($whereCount ==0){
+            $whereCount++;
+            $sql = $sql . " where " . $_POST['dining'];
+        }
+        else{
+            $sql = $sql . " and " . $_POST['dining'];
+        }
+    }
 
-    $sql = $sql . " where " . $_POST['location'];
+
+    //$sql = $sql . " where " . $_POST['location'];
 
     
 
@@ -126,8 +174,7 @@ include("QueryEnums.php");
     $sr =1;
 
    
-    while($row = $result->fetch_assoc()){?>
-            <tr>
+    while($row = $result->fetch_assoc()){?> <tr>
                 <form action="" method="post" role="form">
                     <td><?php echo $sr;?></td>
                     <td><?php echo $row['Name'];?></td>
