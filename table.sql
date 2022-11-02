@@ -20,7 +20,7 @@ CREATE TABLE restaurants(
 
 
 INSERT INTO
-        restaurants(Name, Location, Cuisine, Rating, Dining)
+        restaurants(Name, Location, Cuisine, Rating, Price, Dining)
 VALUES
         ('Pho Heaven', 'Moscow', 'Vietnamese', '*', 'Inexpensive', 'Carryout'),
         ('Hot Pot', 'Moscow', 'Korean', '****', 'Very Expensive', 'Premise'),
