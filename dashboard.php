@@ -34,10 +34,10 @@ include("QueryEnums.php");
                 <option selected="selected" value="*">
                     Any
                 </option>
-                <option value=QueryWhere::LocationMoscow>Moscow</option>
-                <option value=QueryWhere::LocationArlington>Arlington</option>
-                <option value=QueryWhere::LocationPullman>Pullman</option>
-                <option value=QueryWhere::LocationSpokane>Spokane</option>
+                <option value=<?php echo QueryWhere::LocationMoscow?>>Moscow</option>
+                <option value=<?php echo QueryWhere::LocationArlington?>>Arlington</option>
+                <option value=<?php echo QueryWhere::LocationPullman?>>Pullman</option>
+                <option value=<?php echo QueryWhere::LocationSpokane?>>Spokane</option>
 
             </select>
 
@@ -110,13 +110,18 @@ include("QueryEnums.php");
 
     
     $sql = "select * from restaurants";
+
+    $sql = $sql . " where " . $_POST['location'];
+
+    
+
     if(isset($_POST['SQL']) && $_POST['SQL'] != null){
         
         $sql = $_POST['SQL'];
     }
 
    
-
+    echo $sql;
     $result = $con->query($sql);
     $sr =1;
 
