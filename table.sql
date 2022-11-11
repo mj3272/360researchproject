@@ -1,5 +1,10 @@
 
-
+CREATE TABLE querydb(
+        ID INT AUTO_INCREMENT,
+        Name VARCHAR(500),
+        Disjunctive boolean,
+        PRIMARY KEY(ID)
+);
 
 CREATE TABLE restaurants(
         ID INT AUTO_INCREMENT,

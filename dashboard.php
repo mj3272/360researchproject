@@ -1,7 +1,12 @@
 <?php
 //include all query where operations
 include("QueryEnums.php");
+
+
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -91,6 +96,35 @@ include("QueryEnums.php");
             <br>
             <input type="submit" value="Submit">
         </form>
+
+
+        <?php
+        require('db.php');
+        if(array_key_exists('button1', $_POST)) {
+            button1();
+        }
+        else if(array_key_exists('button2', $_POST)) {
+            button2();
+        }
+        function button1() {
+            require('db.php');
+            echo "Conversation has been reset";
+            $reset = "TRUNCATE TABLE querydb";
+            $con->query($reset);
+        }
+        function button2() {
+            echo "This is Button2 that is selected";
+        }
+    ?>
+
+        <form method="post">
+            <input type="submit" name="button1" class="button" value="Fresh Conversation" />
+
+            <input type="submit" name="button2" class="button" value="Button2" />
+        </form>
+
+
+
 
         <hr>
         <table>
