@@ -1,8 +1,6 @@
 <?php
 //include all query where operations
 include("QueryEnums.php");
-
-
 ?>
 
 
@@ -133,106 +131,133 @@ include("QueryEnums.php");
             <input type="submit" name="button2" class="button" value="Button2" />
         </form>
 
-
-
-
         <hr>
         <table>
             <tr>
-                <th>TiD</th>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Cuisine</th>
-                <th>Rating</th>
-                <th>Price</th>
-                <th>Dining</th>
+                <th>Entry</th>
+                <th>Query</th>
+                <th>Disjunctive?</th>
+
 
             </tr>
             <?php
     require('db.php');
-
-
-    
-    $sql = "select * from restaurants";
-    $whereCount = 0;
-    //setting query from form
-    if(isset($_POST['location']) && $_POST['location'] != null)
-    {
-        $whereCount++;
-            $sql = $sql . " where " . $_POST['location'];
-    }
-    if(isset($_POST['cuisine']) && $_POST['cuisine'] != null)
-    {
-        if($whereCount ==0){
-            $whereCount++;
-            $sql = $sql . " where " . $_POST['cuisine'];
-        }
-        else{
-            $sql = $sql . " and " . $_POST['cuisine'];
-        }
-    }
-    if(isset($_POST['rating']) && $_POST['rating'] != null)
-    {
-        if($whereCount ==0){
-            $whereCount++;
-            $sql = $sql . " where " . $_POST['rating'];
-        }
-        else{
-            $sql = $sql . " and " . $_POST['rating'];
-        }
-    }
-    if(isset($_POST['price']) && $_POST['price'] != null)
-    {
-        if($whereCount ==0){
-            $whereCount++;
-            $sql = $sql . " where " . $_POST['price'];
-        }
-        else{
-            $sql = $sql . " and " . $_POST['price'];
-        }
-    }
-    if(isset($_POST['dining']) && $_POST['dining'] != null)
-    {
-        if($whereCount ==0){
-            $whereCount++;
-            $sql = $sql . " where " . $_POST['dining'];
-        }
-        else{
-            $sql = $sql . " and " . $_POST['dining'];
-        }
-    }
-
-
-    //$sql = $sql . " where " . $_POST['location'];
-
+   
+$sql_query = "select * from querydb";
+    $result_query = $con->query($sql_query);
     
 
-    if(isset($_POST['SQL']) && $_POST['SQL'] != null){
-        
-        $sql = $_POST['SQL'];
-    }
-
    
-    echo $sql;
-    $result = $con->query($sql);
-    $sr =1;
-
-   
-    while($row = $result->fetch_assoc()){?> <tr>
+    while($row_query = $result_query->fetch_assoc()){?> <tr>
                 <form action="" method="post" role="form">
-                    <td><?php echo $sr;?></td>
-                    <td><?php echo $row['Name'];?></td>
-                    <td><?php echo $row['Location'];?></td>
-                    <td><?php echo $row['Cuisine'];?></td>
-                    <td><?php echo $row['Rating'];?></td>
-                    <td><?php echo $row['Price'];?></td>
-                    <td><?php echo $row['Dining'];?></td>
-
+                    <td><?php echo $row_query['ID'];?></td>
+                    <td><?php echo $row_query['Name'];?></td>
+                    <td><?php echo $row_query['Disjunctive'];?></td>
                 </form>
             </tr>
-            <?php $sr++; }
+            <?php  }?>
+
+            <!-- start of restaraunt query -->
+            <hr>
+
+
+            <table>
+                <tr>
+                    <th>TiD</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Cuisine</th>
+                    <th>Rating</th>
+                    <th>Price</th>
+                    <th>Dining</th>
+
+                </tr>
+
+
+
+
+                <?php
+             require('db.php');
+                $sql = "select * from restaurants";
+                $whereCount = 0;
+                //setting query from form
+                if(isset($_POST['location']) && $_POST['location'] != null)
+                {
+                $whereCount++;
+                $sql = $sql . " where " . $_POST['location'];
+                }
+                if(isset($_POST['cuisine']) && $_POST['cuisine'] != null)
+                {
+                if($whereCount ==0){
+                $whereCount++;
+                $sql = $sql . " where " . $_POST['cuisine'];
+                }
+                else{
+                $sql = $sql . " and " . $_POST['cuisine'];
+                }
+                }
+                if(isset($_POST['rating']) && $_POST['rating'] != null)
+                {
+                if($whereCount ==0){
+                $whereCount++;
+                $sql = $sql . " where " . $_POST['rating'];
+                }
+                else{
+                $sql = $sql . " and " . $_POST['rating'];
+                }
+                }
+                if(isset($_POST['price']) && $_POST['price'] != null)
+                {
+                if($whereCount ==0){
+                $whereCount++;
+                $sql = $sql . " where " . $_POST['price'];
+                }
+                else{
+                $sql = $sql . " and " . $_POST['price'];
+                }
+                }
+                if(isset($_POST['dining']) && $_POST['dining'] != null)
+                {
+                if($whereCount ==0){
+                $whereCount++;
+                $sql = $sql . " where " . $_POST['dining'];
+                }
+                else{
+                $sql = $sql . " and " . $_POST['dining'];
+                }
+                }
+
+
+                //$sql = $sql . " where " . $_POST['location'];
+
+
+
+                if(isset($_POST['SQL']) && $_POST['SQL'] != null){
+
+                $sql = $_POST['SQL'];
+                }
+
+
+                echo $sql;
+                $result = $con->query($sql);
+                $sr =1;
+
+
+                while($row = $result->fetch_assoc()){?> <tr>
+                    <form action="" method="post" role="form">
+                        <td><?php echo $sr;?></td>
+                        <td><?php echo $row['Name'];?></td>
+                        <td><?php echo $row['Location'];?></td>
+                        <td><?php echo $row['Cuisine'];?></td>
+                        <td><?php echo $row['Rating'];?></td>
+                        <td><?php echo $row['Price'];?></td>
+                        <td><?php echo $row['Dining'];?></td>
+
+                    </form>
+                </tr>
+                <?php $sr++; }
         ?>
-        </table>
+            </table>
 
 
     </div>
@@ -260,4 +285,4 @@ CREATE TABLE IF NOT EXISTS restaurants (
  PRIMARY KEY (TiD)
 );
 
---!>
+-->
