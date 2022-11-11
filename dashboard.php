@@ -38,6 +38,10 @@ include("QueryEnums.php");
                 <option value=<?php echo QueryWhere::LocationArlington?>>Arlington</option>
                 <option value=<?php echo QueryWhere::LocationPullman?>>Pullman</option>
                 <option value=<?php echo QueryWhere::LocationSpokane?>>Spokane</option>
+                <option value=<?php echo QueryWhere::LocationLewiston?>>Lewiston</option>
+                <option value=<?php echo QueryWhere::LocationHayden?>>Hayden</option>
+                <option value=<?php echo QueryWhere::LocationCoeurdAlene?>>CoeurdAlene</option>
+                <option value=<?php echo QueryWhere::LocationPostFalls?>>PostFalls</option>
 
             </select>
 
@@ -50,6 +54,12 @@ include("QueryEnums.php");
                 <option value=<?php echo QueryWhere::CuisineKorean?>>Korean</option>
                 <option value=<?php echo QueryWhere::CuisinePakistani?>>Pakistani</option>
                 <option value=<?php echo QueryWhere::CuisineTibetan?>>Tibetan</option>
+                <option value=<?php echo QueryWhere::CuisineAmerican?>>American</option>
+                <option value=<?php echo QueryWhere::CuisineFrench?>>French</option>
+                <option value=<?php echo QueryWhere::CuisineItalian?>>Italian</option>
+                <option value=<?php echo QueryWhere::CuisineBBQ?>>BBQ</option>
+                <option value=<?php echo QueryWhere::CuisineChinese?>>Chinese</option>
+                <option value=<?php echo QueryWhere::CuisineMexican?>>Mexican</option>
 
             </select>
 
