@@ -9,7 +9,7 @@ session_start();
     $_SESSION["list"]->push('v');
     $_SESSION["list"]->push('1');
     $_SESSION["list"]->push('p');
-    //$_SESSION["list"] = new SplDoublyLinkedList();
+    $_SESSION["list"] = new SplDoublyLinkedList();
 
 
 

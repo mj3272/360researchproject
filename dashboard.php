@@ -103,7 +103,21 @@ session_start();
 
             </select>
             <br>
-            <input type="submit" value="Begin" name="button2" <?php if ($_SESSION["Begin"] == '1'){ ?> disabled
+
+            <?php
+        
+        if(array_key_exists('buttonEnd', $_POST)) {
+            //echo "Conversation has ended, please begin a new query";
+            button1();
+        }
+        else if(array_key_exists('buttonBegin', $_POST)) {
+            $_SESSION["Begin"] = 1;
+        }
+        else if(array_key_exists('buttonFresh', $_POST)) {
+            $_SESSION["Begin"] = 0;
+        }
+        ?>
+            <input type="submit" value="Begin" name="buttonBegin" <?php if ($_SESSION["Begin"] == '1'){ ?> disabled
                 <?php   } ?>>
 
         </form>
@@ -112,9 +126,9 @@ session_start();
         <form method="post">
             <input type="submit" name="button" class="button" value="Cumulative" />
             <input type="submit" name="button" class="button" value="Disjunctive" />
-            <input type="submit" name="button1" class="button" value="End" />
-            <input type="submit" name="button3" class="button" value="Backtrack" />
-            <input type="submit" name="button" class="button" value="Fresh Conversation" />
+            <input type="submit" name="buttonEnd" class="button" value="End" />
+            <input type="submit" name="buttonBackTrack" class="button" value="Backtrack" />
+            <input type="submit" name="buttonFresh" class="button" value="Fresh Conversation" />
         </form>
 
         <?php
@@ -180,23 +194,24 @@ session_start();
 
 
         <?php
-        require('db.php');
-        if(array_key_exists('button1', $_POST)) {
-            button1();
+        
+        if(array_key_exists('buttonEnd', $_POST)) {
+            echo "Conversation has ended, please begin a new query";
+            //button1();
         }
-        else if(array_key_exists('button2', $_POST)) {
+        else if(array_key_exists('buttonBegin', $_POST)) {
             button2($sql);
         }
-        if(array_key_exists('button3', $_POST)) {
+        if(array_key_exists('buttonBackTrack', $_POST)) {
             button3();
         }
         function button1() {
-            echo "Conversation has ended, please begin a new query";
+            //echo "Conversation has ended, please begin a new query";
             $_SESSION["list"] =  new SplDoublyLinkedList();
             $_SESSION["Begin"] = 0;
         }
         function button2($x) {
-            $_SESSION["Begin"] = 1;
+            //$_SESSION["Begin"] = 1;
             $_SESSION["list"]->push($x);
         }
         function button3() {
@@ -204,6 +219,7 @@ session_start();
                 $_SESSION["list"]->pop();
             }
         }
+
     ?>
 
 
@@ -244,8 +260,22 @@ session_start();
             <?php
 
 
-                echo $sql;
-                $result = $con->query($sql);
+                
+                
+                if(!$_SESSION["list"]->valid()){
+                    $_SESSION["list"]->prev();
+                }
+
+                if(!$_SESSION["list"]->valid()){
+                    $sqlActual = $sql;
+                }
+                else{
+                    $sqlActual = $_SESSION["list"]->current();
+                }
+                
+
+                echo $sqlActual;
+                $result = $con->query($sqlActual);
                 $sr =1;
 
 
