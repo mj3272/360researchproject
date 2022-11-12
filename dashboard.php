@@ -1,6 +1,7 @@
 <?php
 //include all query where operations
 include("QueryEnums.php");
+session_start();
 ?>
 
 
@@ -102,81 +103,21 @@ include("QueryEnums.php");
 
             </select>
             <br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Begin" name="button2" <?php if ($_SESSION["Begin"] == '1'){ ?> disabled
+                <?php   } ?>>
+
         </form>
 
+        <?php if ($_SESSION["Begin"] == '1'){ ?> disabled <?php   } ?>
+        <form method="post">
+            <input type="submit" name="button" class="button" value="Cumulative" />
+            <input type="submit" name="button" class="button" value="Disjunctive" />
+            <input type="submit" name="button1" class="button" value="End" />
+            <input type="submit" name="button3" class="button" value="Backtrack" />
+            <input type="submit" name="button" class="button" value="Fresh Conversation" />
+        </form>
 
         <?php
-        require('db.php');
-        if(array_key_exists('button1', $_POST)) {
-            button1();
-        }
-        else if(array_key_exists('button2', $_POST)) {
-            button2();
-        }
-        function button1() {
-            require('db.php');
-            echo "Conversation has been reset";
-            $reset = "TRUNCATE TABLE querydb";
-            $con->query($reset);
-        }
-        function button2() {
-            echo "This is Button2 that is selected";
-        }
-    ?>
-
-        <form method="post">
-            <input type="submit" name="button1" class="button" value="Fresh Conversation" />
-
-            <input type="submit" name="button2" class="button" value="Button2" />
-        </form>
-
-        <hr>
-        <table>
-            <tr>
-                <th>Entry</th>
-                <th>Query</th>
-                <th>Disjunctive?</th>
-
-
-            </tr>
-            <?php
-    require('db.php');
-   
-$sql_query = "select * from querydb";
-    $result_query = $con->query($sql_query);
-    
-
-   
-    while($row_query = $result_query->fetch_assoc()){?> <tr>
-                <form action="" method="post" role="form">
-                    <td><?php echo $row_query['ID'];?></td>
-                    <td><?php echo $row_query['Name'];?></td>
-                    <td><?php echo $row_query['Disjunctive'];?></td>
-                </form>
-            </tr>
-            <?php  }?>
-
-            <!-- start of restaraunt query -->
-            <hr>
-
-
-            <table>
-                <tr>
-                    <th>TiD</th>
-                    <th>Name</th>
-                    <th>Location</th>
-                    <th>Cuisine</th>
-                    <th>Rating</th>
-                    <th>Price</th>
-                    <th>Dining</th>
-
-                </tr>
-
-
-
-
-                <?php
              require('db.php');
                 $sql = "select * from restaurants";
                 $whereCount = 0;
@@ -228,14 +169,79 @@ $sql_query = "select * from querydb";
                 }
 
 
-                //$sql = $sql . " where " . $_POST['location'];
-
 
 
                 if(isset($_POST['SQL']) && $_POST['SQL'] != null){
 
                 $sql = $_POST['SQL'];
                 }
+                ?>
+
+
+
+        <?php
+        require('db.php');
+        if(array_key_exists('button1', $_POST)) {
+            button1();
+        }
+        else if(array_key_exists('button2', $_POST)) {
+            button2($sql);
+        }
+        if(array_key_exists('button3', $_POST)) {
+            button3();
+        }
+        function button1() {
+            echo "Conversation has ended, please begin a new query";
+            $_SESSION["list"] =  new SplDoublyLinkedList();
+            $_SESSION["Begin"] = 0;
+        }
+        function button2($x) {
+            $_SESSION["Begin"] = 1;
+            $_SESSION["list"]->push($x);
+        }
+        function button3() {
+            if($_SESSION["list"]->count() > 1){
+                $_SESSION["list"]->pop();
+            }
+        }
+    ?>
+
+
+
+        <?php
+        $_SESSION["list"]->rewind();
+        while ($_SESSION["list"]->valid()){
+        //Print current node's value
+        echo $_SESSION["list"]->current()."\n";
+        //Turn the cursor to next node
+        $_SESSION["list"]->next();
+        }
+        ?>
+
+
+
+
+
+        <!-- start of restaraunt query -->
+        <hr>
+
+
+        <table>
+            <tr>
+                <th>TiD</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Cuisine</th>
+                <th>Rating</th>
+                <th>Price</th>
+                <th>Dining</th>
+
+            </tr>
+
+
+
+
+            <?php
 
 
                 echo $sql;
@@ -244,20 +250,20 @@ $sql_query = "select * from querydb";
 
 
                 while($row = $result->fetch_assoc()){?> <tr>
-                    <form action="" method="post" role="form">
-                        <td><?php echo $sr;?></td>
-                        <td><?php echo $row['Name'];?></td>
-                        <td><?php echo $row['Location'];?></td>
-                        <td><?php echo $row['Cuisine'];?></td>
-                        <td><?php echo $row['Rating'];?></td>
-                        <td><?php echo $row['Price'];?></td>
-                        <td><?php echo $row['Dining'];?></td>
+                <form action="" method="post" role="form">
+                    <td><?php echo $sr;?></td>
+                    <td><?php echo $row['Name'];?></td>
+                    <td><?php echo $row['Location'];?></td>
+                    <td><?php echo $row['Cuisine'];?></td>
+                    <td><?php echo $row['Rating'];?></td>
+                    <td><?php echo $row['Price'];?></td>
+                    <td><?php echo $row['Dining'];?></td>
 
-                    </form>
-                </tr>
-                <?php $sr++; }
+                </form>
+            </tr>
+            <?php $sr++; }
         ?>
-            </table>
+        </table>
 
 
     </div>
