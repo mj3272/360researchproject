@@ -212,6 +212,7 @@ session_start();
         }
         function button2($x) {
             //$_SESSION["Begin"] = 1;
+            
             $_SESSION["list"]->push($x);
         }
         function button3() {
@@ -260,20 +261,11 @@ session_start();
             <?php
 
 
-                
-                
-                if(!$_SESSION["list"]->valid()){
-                    $_SESSION["list"]->prev();
-                }
 
-                if(!$_SESSION["list"]->valid()){
-                    $sqlActual = $sql;
-                }
-                else{
-                    $sqlActual = $_SESSION["list"]->current();
-                }
+                
                 
 
+                $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-1);
                 echo $sqlActual;
                 $result = $con->query($sqlActual);
                 $sr =1;
