@@ -265,7 +265,15 @@ session_start();
                 
                 
 
-                $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-1);
+                
+                if($_SESSION["list"]->offsetExists($_SESSION["list"]->count()-1)){
+                    $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-1);
+                    
+                }
+                else{
+                    $sqlActual = $sql;
+                    echo "List is Empty! ";
+                }
                 echo $sqlActual;
                 $result = $con->query($sqlActual);
                 $sr =1;
