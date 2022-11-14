@@ -229,7 +229,7 @@ session_start();
         $_SESSION["list"]->rewind();
         while ($_SESSION["list"]->valid()){
         //Print current node's value
-        echo $_SESSION["list"]->current()."\n";
+        echo $_SESSION["list"]->current()." |\n";
         //Turn the cursor to next node
         $_SESSION["list"]->next();
         }
@@ -268,13 +268,13 @@ session_start();
                 
                 if($_SESSION["list"]->offsetExists($_SESSION["list"]->count()-1)){
                     $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-1);
-                    
+                    echo $sqlActual;
                 }
                 else{
                     $sqlActual = $sql;
                     echo "List is Empty! ";
                 }
-                echo $sqlActual;
+                
                 $result = $con->query($sqlActual);
                 $sr =1;
 
