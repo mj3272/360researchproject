@@ -284,6 +284,13 @@ session_start();
     </div>
 
 
+    <hr>
+
+    <?php
+    include("parse.php");
+    parse($sqlActual);
+    ?>
+
 </body>
 
 </html>
