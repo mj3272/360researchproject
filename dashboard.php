@@ -4,8 +4,6 @@ include("QueryEnums.php");
 session_start();
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
 
@@ -23,14 +21,16 @@ session_start();
 
     <div>
 
+        <!-- manual query input
         <form method="post">
             <p>SQL Query: <input type="text" name="SQL" style="width:100%" />
                 <input type="submit" />
             </p>
 
         </form>
+    -->
 
-        <hr>
+
 
         <form method="post">
             <label for="location">Location:</label>
@@ -182,9 +182,6 @@ session_start();
                 }
                 }
 
-
-
-
                 if(isset($_POST['SQL']) && $_POST['SQL'] != null){
 
                 $sql = $_POST['SQL'];
@@ -224,7 +221,6 @@ session_start();
     ?>
 
 
-
         <?php
         $_SESSION["list"]->rewind();
         while ($_SESSION["list"]->valid()){
@@ -236,15 +232,13 @@ session_start();
         ?>
 
 
-
-
-
         <!-- start of restaraunt query -->
         <hr>
 
 
         <table>
             <tr>
+
                 <th>TiD</th>
                 <th>Name</th>
                 <th>Location</th>
@@ -256,15 +250,7 @@ session_start();
             </tr>
 
 
-
-
             <?php
-
-
-
-                
-                
-
                 
                 if($_SESSION["list"]->offsetExists($_SESSION["list"]->count()-1)){
                     $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-1);
@@ -295,12 +281,7 @@ session_start();
         ?>
         </table>
 
-
     </div>
-
-
-
-
 
 
 </body>
