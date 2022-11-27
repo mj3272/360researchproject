@@ -288,6 +288,7 @@ session_start();
 
     <?php
     include("parse.php");
+    $sqlActual = "select * from restaurants where Location=\"Moscow\" or Location=\"Pullman\"";
     parse($sqlActual);
     ?>
 

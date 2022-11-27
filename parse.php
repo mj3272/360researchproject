@@ -36,6 +36,8 @@ function parse($x) {
         }
 
     }
+    echo "<br>";
+    echo $location;
 }
         
     
