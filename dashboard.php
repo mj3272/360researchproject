@@ -203,6 +203,7 @@ session_start();
         }
         if(array_key_exists('buttonBackTrack', $_POST)) {
             button3();
+            $_SESSION["DisjunctiveFlag"]=false;
         }
         function button1() {
             //echo "Conversation has ended, please begin a new query";

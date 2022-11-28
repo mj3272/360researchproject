@@ -180,6 +180,45 @@ function parse($x) {
         }
     }
 
+     //Dining distance
+     if($_SESSION["DFlag"]==false && !$inUse){
+        $_SESSION["DFlag"]= true;
+        $inUse = true;
+        $dining = dining($dining);
+
+        if($price == ""){
+            echo "<h1> ERROR DINING DISTANCE FUNCTION DID NOT RETURN </h1>";
+        }
+
+        //building the return
+        $w ="";
+        $or = false;
+        $once = 0;
+         print_r($array);
+         
+        foreach($array as $token){
+            if(str_contains($token, "and")){
+                $or = false;
+            }
+
+            if(str_contains($token, "Dining")){
+                if($once==0){
+                    $w = $w . ' ' . $dining . ' ' ;
+                    $once = 1;
+                }
+                $or = true;
+            }
+            elseif($or && str_contains($token, "or")){
+
+            }
+            else{
+                $or = false;
+                $w = $w . $token . ' ';
+            }
+
+        }
+    }
+
 
 
 
