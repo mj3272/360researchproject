@@ -109,6 +109,34 @@ if($rating=="Rating=\"****\"Rating=\"*****\"Rating=\"***\"Rating=\"**\"Rating=\"
 {
    return $rating="Rating=\"****\" or Rating=\"*****\" or Rating=\"***\" or Rating=\"**\" or Rating=\"*\"";
 }
+
+//starting with *****----------------------------------
+
+if($rating=="Rating=\"*****\"")
+{
+   return $rating="Rating=\"*****\" or Rating=\"****\"";
+}
+
+if($rating=="Rating=\"*****\"Rating=\"****\"")
+{
+   return $rating="Rating=\"*****\" or Rating=\"****\" or Rating=\"***\"";
+}
+
+if($rating=="Rating=\"*****\"Rating=\"****\"Rating=\"***\"")
+{
+   return $rating="Rating=\"*****\" or Rating=\"****\" or Rating=\"***\" or Rating=\"**\"";
+}
+
+if($rating=="Rating=\"*****\"Rating=\"****\"Rating=\"***\"Rating=\"**\"")
+{
+   return $rating="Rating=\"*****\" or Rating=\"****\" or Rating=\"***\" or Rating=\"**\" or Rating=\"*\"";
+}
+
+if($rating=="Rating=\"*****\"Rating=\"****\"Rating=\"***\"Rating=\"**\"Rating=\"*\"")
+{
+   return $rating="Rating=\"*****\" or Rating=\"****\" or Rating=\"***\" or Rating=\"**\" or Rating=\"*\"";
+}
+
 }
 
 //price-------------------------------------------
