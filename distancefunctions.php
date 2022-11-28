@@ -286,8 +286,228 @@ if($dining=="Dining=\"Both\"Dining=\"Carryout\"Dining=\"Premise\"")
 }
 //location----------------------------------------------
 
+function location($location){
+//start with Arlington
+
+if($location=="Location=\"Arlington\"")
+{
+    return $location=="Location=\"Arlington\" or Location=\"Spokane\"";
+}
+
+if($location=="Location=\"Arlington\" or Location=\"Spokane\"")
+{
+    return $location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\"";
+}
+
+if($location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\"")
+{
+    return $location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\" or Location=\"Moscow\"";
+}
+
+if($location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\" or Location=\"Moscow\"")
+{
+    return $location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"PostFalls\"";
+}
+
+if($location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"PostFalls\"")
+{
+    return $location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"PostFalls\" or Location=\"Hayden\"";
+}
+
+if($location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"PostFalls\" or Location=\"Hayden\"")
+{
+    return $location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"PostFalls\" or Location=\"Hayden\" or Location=\"CoeurdAlene\"";
+}
+
+if($location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"PostFalls\" or Location=\"Hayden\" or Location=\"CoeurdAlene\"")
+{
+    return $location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"PostFalls\" or Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"Lewiston\"";
+}
+
+if($location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"PostFalls\" or Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"Lewiston\"")
+{
+    return $location=="Location=\"Arlington\" or Location=\"Spokane\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"PostFalls\" or Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"Lewiston\"";
+}
+
+//start with CDA
+
+if($location=="Location=\"CoeurdAlene\"")
+{
+    return $location=="Location=\"CoeurdAlene\" or Location=\"Hayden\"";
+}
+
+if($location=="Location=\"CoeurdAlene\" or Location=\"Hayden\"")
+{
+    return $location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\"";
+}
+
+if($location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\"")
+{
+    return $location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Spokane\"";
+}
+
+if($location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Spokane\"")
+{
+    return $location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\"";
+}
+
+if($location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\"")
+{
+    return $location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\"";
+}
+
+if($location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\"")
+{
+    return $location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\"";
+}
+
+if($location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\"")
+{
+    return $location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\" or Location=\"Arlington\"";
+}
+
+if($location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\" or Location=\"Arlington\"")
+{
+    return $location=="Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\" or Location=\"Arlington\"";
+}
+
+//start with Hayden
+
+if($location=="Location=\"Hayden\"")
+{
+    return $location=="Location=\"Hayden\" or Location=\"CoeurdAlene\"";
+}
+
+if($location=="Location=\"Hayden\" or Location=\"CoeurdAlene\"")
+{
+    return $location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\"";
+}
+
+if($location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\"")
+{
+    return $location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\" or Location=\"Spokane\"";
+}
+
+if($location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\" or Location=\"Spokane\"")
+{
+    return $location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\"";
+}
+
+if($location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\"")
+{
+    return $location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\"";
+}
+
+if($location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\"")
+{
+    return $location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\"";
+}
+
+if($location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\"")
+{
+    return $location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\" or Location=\"Arlington\"";
+}
+
+if($location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\" or Location=\"Arlington\"")
+{
+    return $location=="Location=\"Hayden\" or Location=\"CoeurdAlene\" or Location=\"PostFalls\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\" or Location=\"Arlington\"";
+}
+
+//start with PostFalls
+
+if($location=="Location=\"PostFalls\"")
+{
+    return $location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\"";
+}
+
+if($location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\"")
+{
+    return $location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\"";
+}
+
+if($location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\"")
+{
+    return $location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"Spokane\"";
+}
+
+if($location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"Spokane\"")
+{
+    return $location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"Spokane\" or Location=\"Moscow\"";
+}
+
+if($location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"Spokane\" or Location=\"Moscow\"")
+{
+    return $location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\"";
+}
+
+if($location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\"")
+{
+    return $location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\"";
+}
+
+if($location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\"")
+{
+    return $location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\" or Location=\"Arlington\"";
+}
+
+if($location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\" or Location=\"Arlington\"")
+{
+    return $location=="Location=\"PostFalls\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"Spokane\" or Location=\"Moscow\" or Location=\"Pullman\" or Location=\"Lewiston\" or Location=\"Arlington\"";
+}
+
+//start with Lewiston
+
+if($location=="Location=\"Lewiston\"")
+{
+    return $location=="Location=\"Lewiston\" or Location=\"Pullman\"";
+}
+
+if($location=="Location=\"Lewiston\" or Location=\"Pullman\"")
+{
+    return $location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\"";
+}
+
+if($location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\"")
+{
+    return $location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"Spokane\"";
+}
+
+if($location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"Spokane\"")
+{
+    return $location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"Spokane\" or Location=\"CoeurdAlene\"";
+}
+
+if($location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"Spokane\" or Location=\"CoeurdAlene\"")
+{
+    return $location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"Spokane\" or Location=\"CoeurdAlene\" or Location=\"Hayden\"";
+}
+
+if($location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"Spokane\" or Location=\"CoeurdAlene\" or Location=\"Hayden\"")
+{
+    return $location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"Spokane\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\"";
+}
+
+if($location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"Spokane\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\"")
+{
+    return $location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"Spokane\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Arlington\"";
+}
+
+if($location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"Spokane\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Arlington\"")
+{
+    return $location=="Location=\"Lewiston\" or Location=\"Pullman\" or Location=\"Moscow\" or Location=\"Spokane\" or Location=\"CoeurdAlene\" or Location=\"Hayden\" or Location=\"PostFalls\" or Location=\"Arlington\"";
+}
+
+
+//start with Moscow
 
 
 
+//start with Pullman
+
+
+
+//start with Spokane
+
+}
 
 ?>
