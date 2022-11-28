@@ -70,12 +70,15 @@ function parse($x) {
         $rating = rating($rating);
 
         //building the return
-        $x ='';
+        $x ="";
         $or = false;
         $once = 0;
          print_r($array);
          
         foreach($array as $token){
+            if(str_contains($token, "and")){
+                $or = false;
+            }
             
             if(str_contains($token, "Rating")){
                 if($once==0){
@@ -101,13 +104,16 @@ function parse($x) {
         $price = price($price);
 
         //building the return
-        $x ='';
+        $x ="";
         $or = false;
         $once = 0;
          print_r($array);
          
         foreach($array as $token){
-            
+            if(str_contains($token, "and")){
+                $or = false;
+            }
+
             if(str_contains($token, "Price")){
                 if($once==0){
                     $x = $x . ' ' . $price . ' ' ;
@@ -119,6 +125,7 @@ function parse($x) {
 
             }
             else{
+                $or = false;
                 $x = $x . $token . ' ';
             }
 
