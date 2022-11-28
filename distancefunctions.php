@@ -2,93 +2,95 @@
 
 //rating
 
+function rating($rating){
 //starting with * ----------------------------------------
-if(rating=="rating=*")
+if(rating=="rating=\"*\"")
 {
-    rating="rating=* or rating=**";
+    rating="rating=\"*\" or rating=\"**\"";
 }
 
-if(rating=="rating=* or rating=**")
+if(rating=="rating=\"*\"rating=\"**\"")
 {
-    rating="rating=* or rating=** or rating=***";
+    rating="rating=\"*\" or rating=\"**\" or rating=\"***\"";
 }
 
-if(rating=="rating=* or rating=** or rating=***")
+if(rating=="rating=\"*\"rating=\"**\"rating=\"***\"")
 {
-    rating="rating=* or rating=** or rating=*** or rating=****";
+    rating="rating=\"*\" or rating=\"**\" or rating=\"***\" or rating=\"****\"";
 }
 
-if(rating=="rating=* or rating=** or rating=*** or rating=****")
+if(rating=="rating=\"*\"rating=\"**\"rating=\"***\"rating=\"****\"")
 {
-    rating="rating=* or rating=** or rating=*** or rating=**** or rating=*****";
+    rating="rating=\"*\" or rating=\"**\" or rating=\"***\" or rating=\"****\" or rating=\"*****\"";
 }
 
 //starting with **---------------------------------------------------
 
-if(rating=="rating=**")
+if(rating=="rating=\"**\"")
 {
-    rating="rating=** or rating=***";
+    rating="rating=\"**\" or rating=\"***\"";
 }
 
-if(rating=="rating=** or rating=***")
+if(rating=="rating=\"**\"rating=\"***\"")
 {
-    rating="rating=** or rating=*** or rating=****";
+    rating="rating=\"**\" or rating=\"***\" or rating=\"****\"";
 }
 
-if(rating=="rating=** or rating=*** or rating=****")
+if(rating=="rating=\"**\"rating=\"***\"rating=\"****\"")
 {
-    rating="rating=** or rating=*** or rating=**** or rating=*****";
+    rating="rating=\"**\" or rating=\"***\" or rating=\"****\" or rating=\"*****\"";
 }
 
-if(rating=="rating=** or rating=*** or rating=**** or rating=*****")
+if(rating=="rating=\"**\"rating=\"***\"rating=\"****\"rating=\"*****\"")
 {
-    rating="rating=** or rating=*** or rating=**** or rating=***** or rating=*";
+    rating="rating=\"**\" or rating=\"***\" or rating=\"****\" or rating=\"*****\" or rating=\"*\"";
 }
 
 //starting with *** ----------------------------------------
 
-if(rating=="rating=***")
+if(rating=="rating=\"***\"")
 {
-    rating="rating=*** or rating=****";
+    rating="rating=\"***\" or rating=\"****\"";
 }
 
-if(rating=="rating=*** or rating=****")
+if(rating=="rating=\"***\"rating=\"****\"")
 {
-    rating="rating=*** or rating=**** or rating=*****";
+    rating="rating=\"***\" or rating=\"****\" or rating=\"*****\"";
 }
 
-if(rating=="rating=*** or rating=**** or rating=*****")
+if(rating=="rating=\"***\"rating=\"****\"rating=\"*****\"")
 {
-    rating="rating=*** or rating=**** or rating=***** or rating=**";
+    rating="rating=\"***\" or rating=\"****\" or rating=\"*****\" or rating=\"**\"";
 }
 
-if(rating=="rating=*** or rating=**** or rating=***** or rating=**")
+if(rating=="rating=\"***\"rating=\"****\"rating=\"*****\"rating=\"**\"")
 {
-    rating="rating=*** or rating=**** or rating=***** or rating=** or rating=*";
+    rating="rating=\"***\" or rating=\"****\" or rating=\"*****\" or rating=\"**\" or rating=\"*\"";
 }
 
 //starting with **** ------------------------------------
 
-if(rating=="rating=****")
+if(rating=="rating=\"****\"")
 {
-    rating="rating=**** or rating=*****";
+    rating="rating=\"****\" or rating=\"*****\"";
 }
 
-if(rating=="rating=**** or rating=*****")
+if(rating=="rating=\"****\"rating=\"*****\"")
 {
-    rating="rating=**** or rating=***** or rating=***";
+    rating="rating=\"****\" or rating=\"*****\" or rating=\"***\"";
 }
 
-if(rating=="rating=**** or rating=***** or rating=***")
+if(rating=="rating=\"****\"rating=\"*****\"rating=\"***\"")
 {
-    rating="rating=**** or rating=***** or rating=*** or rating=**";
+    rating="rating=\"****\" or rating=\"*****\" or rating=\"***\" or rating=\"**\"";
 }
 
-if(rating=="rating=**** or rating=***** or rating=*** or rating=**")
+if(rating=="rating=\"****\"rating=\"*****\"rating=\"***\"rating=\"**\"")
 {
-    rating="rating=**** or rating=***** or rating=*** or rating=** or rating=*";
+    rating="rating=\"****\" or rating=\"*****\" or rating=\"***\" or rating=\"**\" or rating=\"*\"";
 }
-
+}
+/*
 //price-------------------------------------------
 
 //starting with inexpensive
@@ -199,7 +201,7 @@ if(dining=="dining=Both or dining=Carryout")
 //location----------------------------------------------
 
 
-
+*/
 
 
 ?>
