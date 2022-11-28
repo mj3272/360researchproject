@@ -4,90 +4,90 @@
 
 function rating($rating){
 //starting with * ----------------------------------------
-if(rating=="rating=\"*\"")
+if($rating== "Rating=\"*\"")
 {
-    rating="rating=\"*\" or rating=\"**\"";
+   return $rating = "Rating=\"*\" or Rating=\"**\"";
 }
 
-if(rating=="rating=\"*\"rating=\"**\"")
+if($rating=="Rating=\"*\"Rating=\"**\"")
 {
-    rating="rating=\"*\" or rating=\"**\" or rating=\"***\"";
+   return $rating = "Rating=\"*\" or Rating=\"**\" or Rating=\"***\"";
 }
 
-if(rating=="rating=\"*\"rating=\"**\"rating=\"***\"")
+if($rating=="Rating=\"*\"Rating=\"**\"Rating=\"***\"")
 {
-    rating="rating=\"*\" or rating=\"**\" or rating=\"***\" or rating=\"****\"";
+   return $rating="Rating=\"*\" or Rating=\"**\" or Rating=\"***\" or Rating=\"****\"";
 }
 
-if(rating=="rating=\"*\"rating=\"**\"rating=\"***\"rating=\"****\"")
+if($rating=="Rating=\"*\"Rating=\"**\"Rating=\"***\"Rating=\"****\"")
 {
-    rating="rating=\"*\" or rating=\"**\" or rating=\"***\" or rating=\"****\" or rating=\"*****\"";
+   return $rating="Rating=\"*\" or Rating=\"**\" or Rating=\"***\" or Rating=\"****\" or Rating=\"*****\"";
 }
 
 //starting with **---------------------------------------------------
 
-if(rating=="rating=\"**\"")
+if($rating=="Rating=\"**\"")
 {
-    rating="rating=\"**\" or rating=\"***\"";
+   return $rating="Rating=\"**\" or Rating=\"***\"";
 }
 
-if(rating=="rating=\"**\"rating=\"***\"")
+if($rating=="Rating=\"**\"Rating=\"***\"")
 {
-    rating="rating=\"**\" or rating=\"***\" or rating=\"****\"";
+   return $rating="Rating=\"**\" or Rating=\"***\" or Rating=\"****\"";
 }
 
-if(rating=="rating=\"**\"rating=\"***\"rating=\"****\"")
+if($rating=="Rating=\"**\"Rating=\"***\"Rating=\"****\"")
 {
-    rating="rating=\"**\" or rating=\"***\" or rating=\"****\" or rating=\"*****\"";
+   return $rating="Rating=\"**\" or Rating=\"***\" or Rating=\"****\" or Rating=\"*****\"";
 }
 
-if(rating=="rating=\"**\"rating=\"***\"rating=\"****\"rating=\"*****\"")
+if($rating=="Rating=\"**\"Rating=\"***\"Rating=\"****\"Rating=\"*****\"")
 {
-    rating="rating=\"**\" or rating=\"***\" or rating=\"****\" or rating=\"*****\" or rating=\"*\"";
+   return $rating="Rating=\"**\" or Rating=\"***\" or Rating=\"****\" or Rating=\"*****\" or Rating=\"*\"";
 }
 
 //starting with *** ----------------------------------------
 
-if(rating=="rating=\"***\"")
+if($rating=="Rating=\"***\"")
 {
-    rating="rating=\"***\" or rating=\"****\"";
+   return $rating="Rating=\"***\" or Rating=\"****\"";
 }
 
-if(rating=="rating=\"***\"rating=\"****\"")
+if($rating=="Rating=\"***\"Rating=\"****\"")
 {
-    rating="rating=\"***\" or rating=\"****\" or rating=\"*****\"";
+   return $rating="Rating=\"***\" or Rating=\"****\" or Rating=\"*****\"";
 }
 
-if(rating=="rating=\"***\"rating=\"****\"rating=\"*****\"")
+if($rating=="Rating=\"***\"Rating=\"****\"Rating=\"*****\"")
 {
-    rating="rating=\"***\" or rating=\"****\" or rating=\"*****\" or rating=\"**\"";
+   return $rating="Rating=\"***\" or Rating=\"****\" or Rating=\"*****\" or Rating=\"**\"";
 }
 
-if(rating=="rating=\"***\"rating=\"****\"rating=\"*****\"rating=\"**\"")
+if($rating=="Rating=\"***\"Rating=\"****\"Rating=\"*****\"Rating=\"**\"")
 {
-    rating="rating=\"***\" or rating=\"****\" or rating=\"*****\" or rating=\"**\" or rating=\"*\"";
+   return $rating="Rating=\"***\" or Rating=\"****\" or Rating=\"*****\" or Rating=\"**\" or Rating=\"*\"";
 }
 
 //starting with **** ------------------------------------
 
-if(rating=="rating=\"****\"")
+if($rating=="Rating=\"****\"")
 {
-    rating="rating=\"****\" or rating=\"*****\"";
+   return $rating="Rating=\"****\" or Rating=\"*****\"";
 }
 
-if(rating=="rating=\"****\"rating=\"*****\"")
+if($rating=="Rating=\"****\"Rating=\"*****\"")
 {
-    rating="rating=\"****\" or rating=\"*****\" or rating=\"***\"";
+   return $rating="Rating=\"****\" or Rating=\"*****\" or Rating=\"***\"";
 }
 
-if(rating=="rating=\"****\"rating=\"*****\"rating=\"***\"")
+if($rating=="Rating=\"****\"Rating=\"*****\"Rating=\"***\"")
 {
-    rating="rating=\"****\" or rating=\"*****\" or rating=\"***\" or rating=\"**\"";
+   return $rating="Rating=\"****\" or Rating=\"*****\" or Rating=\"***\" or Rating=\"**\"";
 }
 
-if(rating=="rating=\"****\"rating=\"*****\"rating=\"***\"rating=\"**\"")
+if($rating=="Rating=\"****\"Rating=\"*****\"Rating=\"***\"Rating=\"**\"")
 {
-    rating="rating=\"****\" or rating=\"*****\" or rating=\"***\" or rating=\"**\" or rating=\"*\"";
+   return $rating="Rating=\"****\" or Rating=\"*****\" or Rating=\"***\" or Rating=\"**\" or Rating=\"*\"";
 }
 }
 /*

@@ -251,7 +251,7 @@ session_start();
 
 
             <?php
-                
+                include("parse.php");
                 if($_SESSION["list"]->offsetExists($_SESSION["list"]->count()-1)){
                     $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-1);
                     echo $sqlActual;
@@ -261,6 +261,9 @@ session_start();
                     echo "List is Empty! ";
                 }
                 
+                
+                $sqlActual = parse($sqlActual);
+                echo $sqlActual;
                 $result = $con->query($sqlActual);
                 $sr =1;
 
@@ -287,9 +290,9 @@ session_start();
     <hr>
 
     <?php
-    include("parse.php");
-    //$sqlActual = "select * from restaurants where Location=\"Moscow\" or Location=\"Pullman\"";
-    parse($sqlActual);
+    //include("parse.php");
+    
+    //parse($sqlActual);
     ?>
 
 </body>

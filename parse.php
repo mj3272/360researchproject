@@ -1,4 +1,7 @@
 <?php
+
+include ("distancefunctions.php");
+
 function parse($x) {
     $array = explode(" ", $x);
    // print_r($array);
@@ -35,13 +38,25 @@ function parse($x) {
     echo "<br>";
     echo $location;
 
-    $x = "select * from restaurants where";
+    $x = "select * from restaurants where ";
 
-    if($location != ''){
-        $x = $x . $location;
+    echo "<br>";
+    echo $rating;
+    echo "<br>";
+
+    $rating = rating($rating);
+
+    echo "<br>";
+    echo $rating;
+    echo "<br>";
+
+    if($rating != ''){
+        $x = $x . $rating;
     }
 
+echo $x;
 
+return $x;
 
 
 }
