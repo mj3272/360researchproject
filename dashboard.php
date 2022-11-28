@@ -94,7 +94,7 @@ session_start();
 
             <label for="dining">Dining:</label>
             <select id="dining" name="dining">
-                <option selected="selected" value="">button1
+                <option selected="selected" value="">
                     Any
                 </option>
                 <option value=<?php echo QueryWhere::DiningCarryout?>>Carryout</option>
