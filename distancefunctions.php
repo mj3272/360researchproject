@@ -254,34 +254,34 @@ if($dining=="(Dining=\"Premise\"Dining=\"Both\"Dining=\"Carryout\")")
 
 if($dining=="Dining=\"Carryout\"")
 {
-    return $dining="Dining=\"Carryout\" or Dining=\"Both\"";
+    return $dining="(Dining=\"Carryout\" or Dining=\"Both\")";
 }
 
-if($dining=="Dining=\"Carryout\"Dining=\"Both\"")
+if($dining=="(Dining=\"Carryout\"Dining=\"Both\")")
 {
-    return $dining="Dining=\"Carryout\" or Dining=\"Both\" or Dining=\"Premise\"";
+    return $dining="(Dining=\"Carryout\" or Dining=\"Both\" or Dining=\"Premise\")";
 }
 
-if($dining=="Dining=\"Carryout\"Dining=\"Both\"Dining=\"Premise\"")
+if($dining=="(Dining=\"Carryout\"Dining=\"Both\"Dining=\"Premise\")")
 {
-    return $dining="Dining=\"Carryout\" or Dining=\"Both\" or Dining=\"Premise\"";
+    return $dining="(Dining=\"Carryout\" or Dining=\"Both\" or Dining=\"Premise\")";
 }
 
 //start with Both
 
 if($dining=="Dining=\"Both\"")
 {
-    return $dining="Dining=\"Both\" or Dining=\"Carryout\"";
+    return $dining="(Dining=\"Both\" or Dining=\"Carryout\")";
 }
 
-if($dining=="Dining=\"Both\"Dining=\"Carryout\"")
+if($dining=="(Dining=\"Both\"Dining=\"Carryout\")")
 {
-    return $dining="Dining=\"Both\" or Dining=\"Carryout\" or Dining=\"Premise\"";
+    return $dining="(Dining=\"Both\" or Dining=\"Carryout\" or Dining=\"Premise\")";
 }
 
-if($dining=="Dining=\"Both\"Dining=\"Carryout\"Dining=\"Premise\"")
+if($dining=="(Dining=\"Both\"Dining=\"Carryout\"Dining=\"Premise\")")
 {
-    return $dining="Dining=\"Both\" or Dining=\"Carryout\" or Dining=\"Premise\"";
+    return $dining="(Dining=\"Both\" or Dining=\"Carryout\" or Dining=\"Premise\")";
 }
 }
 //location----------------------------------------------
