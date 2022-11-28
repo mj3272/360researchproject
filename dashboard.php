@@ -229,22 +229,24 @@ session_start();
         <!-- start of restaraunt query -->
         <hr>
 
+        <div class="row">
+            <div class="column">
 
-        <table>
-            <tr>
+                <table>
+                    <tr>
 
-                <th>TiD</th>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Cuisine</th>
-                <th>Rating</th>
-                <th>Price</th>
-                <th>Dining</th>
+                        <th>TiD</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Cuisine</th>
+                        <th>Rating</th>
+                        <th>Price</th>
+                        <th>Dining</th>
 
-            </tr>
+                    </tr>
 
 
-            <?php
+                    <?php
                 include("parse.php");
                 if($_SESSION["list"]->offsetExists($_SESSION["list"]->count()-1)){
                     $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-1);
@@ -270,27 +272,26 @@ session_start();
 
 
                 while($row = $result->fetch_assoc()){?> <tr>
-                <form action="" method="post" role="form">
-                    <td><?php echo $sr;?></td>
-                    <td><?php echo $row['Name'];?></td>
-                    <td><?php echo $row['Location'];?></td>
-                    <td><?php echo $row['Cuisine'];?></td>
-                    <td><?php echo $row['Rating'];?></td>
-                    <td><?php echo $row['Price'];?></td>
-                    <td><?php echo $row['Dining'];?></td>
+                        <form action="" method="post" role="form">
+                            <td><?php echo $sr;?></td>
+                            <td><?php echo $row['Name'];?></td>
+                            <td><?php echo $row['Location'];?></td>
+                            <td><?php echo $row['Cuisine'];?></td>
+                            <td><?php echo $row['Rating'];?></td>
+                            <td><?php echo $row['Price'];?></td>
+                            <td><?php echo $row['Dining'];?></td>
 
-                </form>
-            </tr>
-            <?php $sr++; }
+                        </form>
+                    </tr>
+                    <?php $sr++; }
         ?>
-        </table>
+                </table>
+            </div>
 
-    </div>
+            <div class="column">
 
-
-    <hr>
-
-    <?php
+                <?php
+                echo "<h1>Query chain: </h1>";
         $_SESSION["list"]->rewind();
         while ($_SESSION["list"]->valid()){
         //Print current node's value
@@ -299,6 +300,18 @@ session_start();
         $_SESSION["list"]->next();
         }
         ?>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+    <hr>
+
+
 
 </body>
 
