@@ -4,8 +4,8 @@ include ("distancefunctions.php");
 
 function parse($x) {
     $array = explode(" ", $x);
-   // print_r($array);
-    echo "<br>";
+    //print_r($array);
+    //echo "<br>";
 
     $location = '';
     $cuisine = '';
@@ -15,7 +15,7 @@ function parse($x) {
 
     //Creating tokens of each
     foreach($array as $value){
-        echo $value . ' ';
+        //echo $value . ' ';
 
         if(str_contains($value, "Location")){
             $location = $location . $value;
@@ -36,19 +36,60 @@ function parse($x) {
 
 
 
-    $x = "select * from restaurants where ";
+    $w = "select * from restaurants where ";
+    $inUse = false;
+
+    
+    //$price = price($price);
 
 
-    $rating = rating($rating);
+    if($rating != '' && $_SESSION["RFlag"]==false && !$inUse){
+        //$_SESSION["RFlag"]= true; //need to remove this if working
+        $inUse = true;
+        $rating = rating($rating);
 
-  
+        $x = $w . $rating;
+        $x ='';
 
-    if($rating != ''){
-        $x = $x . $rating;
+        //building x
+        $or = false;
+        $once = 0;
+         print_r($array);
+        foreach($array as $token){
+            
+    
+            if(str_contains($token, "Rating")){
+                if($once==0){
+                    $x = $x . ' ' . $rating . ' ' ;
+                    $once = 1;
+                }
+                $or = true;
+            }
+            elseif($or && str_contains($token, "or")){
+
+            }
+            
+            else{
+                $x = $x . $token . ' ';
+            }
+
+            
+        }
+        
     }
 
+    if($price != '' && $_SESSION["PFlag"]==false && !$inUse){
+        $_SESSION["PFlag"]= true;
+        $inUse = true;
+        $price = price($price);
+        $x = $w . $price;
+    }
 
+    echo "<br>";
+    echo "<h1>" . $x . "</h1>" ; 
+    echo "<br>";
 
+    
 return $x;
 
 

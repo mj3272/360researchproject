@@ -11,6 +11,11 @@ session_start();
     $_SESSION["list"]->push('p');
     $_SESSION["list"] = new SplDoublyLinkedList();
 
+    $_SESSION["LFlag"]=false;
+    $_SESSION["CFlag"]=false;
+    $_SESSION["RFlag"]=false;
+    $_SESSION["PFlag"]=false;
+    $_SESSION["DFlag"]=false;
 
 
 

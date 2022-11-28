@@ -257,7 +257,7 @@ session_start();
                     }
                         
 
-                    echo $sqlActual;
+                    
                 }
                 else{
                     $sqlActual = $sql;
@@ -265,8 +265,7 @@ session_start();
                 }
                 
                 
-                
-                
+                echo $sqlActual;
                 $result = $con->query($sqlActual);
                 $sr =1;
 
