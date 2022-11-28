@@ -291,11 +291,11 @@ session_start();
             <div class="column">
 
                 <?php
-                echo "<h1>Query chain: </h1>";
+                echo "<h3>Query chain: </h3>";
         $_SESSION["list"]->rewind();
         while ($_SESSION["list"]->valid()){
         //Print current node's value
-        echo $_SESSION["list"]->current()." |\n";
+        echo "<p>" . $_SESSION["list"]->current()."</p>";
         //Turn the cursor to next node
         $_SESSION["list"]->next();
         }
