@@ -90,77 +90,79 @@ if($rating=="Rating=\"****\"Rating=\"*****\"Rating=\"***\"Rating=\"**\"")
    return $rating="Rating=\"****\" or Rating=\"*****\" or Rating=\"***\" or Rating=\"**\" or Rating=\"*\"";
 }
 }
-/*
+
 //price-------------------------------------------
 
+function price($price){
 //starting with inexpensive
 
-if(price=="price=Inexpensive")
+if($price=="Price=Inexpensive")
 {
-    price="price=Inexpensive or price=Moderate";
+    return $price="Price=Inexpensive or Price=Moderate";
 }
 
-if(price=="price=Inexpensive or price=Moderate")
+if($price=="Price=InexpensivePrice=Moderate")
 {
-    price="price=Inexpensive or price=Moderate or price=Expensive";
+    return $price="Price=Inexpensive or Price=Moderate or Price=Expensive";
 }
 
-if(price=="price=Inexpensive or price=Moderate or price=Expensive")
+if($price=="Price=InexpensivePrice=ModeratePrice=Expensive")
 {
-    price="price=Inexpensive or price=Moderate or price=Expensive or price=VeryExpensive";
+    return $price="Price=Inexpensive or Price=Moderate or Price=Expensive or Price=VeryExpensive";
 }
 
 
 //starting with moderate------------------------------------
-if(price=="price=Moderate")
+if($price=="Price=Moderate")
 {
-    price="price=Moderate or price=Inexpensive";
+    return $price="Price=Moderate or Price=Inexpensive";
 }
 
-if(price=="price=Moderate or price=Inexpensive")
+if($price=="Price=ModeratePrice=Inexpensive")
 {
-    price="price=Moderate or price=Inexpensive or price=Expensive";
+    return $price="Price=Moderate or Price=Inexpensive or Price=Expensive";
 }
 
-if(price=="price=Moderate or price=Inexpensive or price=Expensive")
+if($price=="Price=ModeratePrice=InexpensivePrice=Expensive")
 {
-    price="price=Moderate or price=Inexpensive or price=Expensive or Price=VeryExpensive";
+    return $price="Price=Moderate or Price=Inexpensive or Price=Expensive or Price=VeryExpensive";
 }
 
 //starting with expenisve
 
-if(price=="price=Expensive")
+if($price=="Price=Expensive")
 {
-    price="price=Expensive or price=Moderate";
+    return $price="Price=Expensive or Price=Moderate";
 }
 
-if(price=="price=Expensive or price=Moderate")
+if($price=="Price=ExpensivePrice=Moderate")
 {
-    price="price=Expensive or price=Moderate or price=Inexpensive";
+    return $price="Price=Expensive or Price=Moderate or Price=Inexpensive";
 }
 
-if(price=="price=Expensive or price=Moderate or price=Inexpensive")
+if($price=="Price=ExpensivePrice=ModeratePrice=Inexpensive")
 {
-    price="price=Expensive or price=Moderate or price=Inexpensive or price=VeryExpensive";
+    return $price="Price=Expensive or Price=Moderate or Price=Inexpensive or Price=VeryExpensive";
 }
 
 //starting with veryexpensive-------------------------
 
-if(price=="price=VeryExpensive")
+if($price=="Price=VeryExpensive")
 {
-    price="price=VeryExpensive or price=Expensive";
+    return $price="Price=VeryExpensive or Price=Expensive";
 }
 
-if(price=="price=VeryExpensive or price=Expensive")
+if($price=="Price=VeryExpensivePrice=Expensive")
 {
-    price="price=VeryExpensive or price=Expensive or price=Moderate";
+    return $price="Price=VeryExpensive or Price=Expensive or Price=Moderate";
 }
 
-if(price=="price=VeryExpensive or price=Expensive or price=Moderate")
+if($price=="Price=VeryExpensivePrice=ExpensivePrice=Moderate")
 {
-    price="price=VeryExpensive or price=Expensive or price=Moderate or price=Inexpensive";
+    return $price="Price=VeryExpensive or Price=Expensive or Price=Moderate or Price=Inexpensive";
 }
-
+}
+/*
 //dining--------------------------------------------------
 
 //start with premise-------------------
