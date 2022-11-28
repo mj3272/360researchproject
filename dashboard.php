@@ -124,7 +124,7 @@ session_start();
 
         <?php if ($_SESSION["Begin"] == '1'){ ?> disabled <?php   } ?>
         <form method="post">
-            <input type="submit" name="button" class="button" value="Cumulative" />
+            <input type="submit" name="buttonCumulative" class="button" value="Cumulative" />
             <input type="submit" name="button" class="button" value="Disjunctive" />
             <input type="submit" name="buttonEnd" class="button" value="End" />
             <input type="submit" name="buttonBackTrack" class="button" value="Backtrack" />
@@ -191,7 +191,9 @@ session_start();
 
 
         <?php
-        
+
+
+
         if(array_key_exists('buttonEnd', $_POST)) {
             echo "Conversation has ended, please begin a new query";
             //button1();
@@ -221,15 +223,7 @@ session_start();
     ?>
 
 
-        <?php
-        $_SESSION["list"]->rewind();
-        while ($_SESSION["list"]->valid()){
-        //Print current node's value
-        echo $_SESSION["list"]->current()." |\n";
-        //Turn the cursor to next node
-        $_SESSION["list"]->next();
-        }
-        ?>
+
 
 
         <!-- start of restaraunt query -->
@@ -254,6 +248,13 @@ session_start();
                 include("parse.php");
                 if($_SESSION["list"]->offsetExists($_SESSION["list"]->count()-1)){
                     $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-1);
+
+                    if(array_key_exists('buttonCumulative', $_POST)) {
+                        $sqlActual = parse($sqlActual);
+                        $_SESSION["list"]->push($sqlActual);
+                    }
+                        
+
                     echo $sqlActual;
                 }
                 else{
@@ -262,8 +263,8 @@ session_start();
                 }
                 
                 
-                $sqlActual = parse($sqlActual);
-                echo $sqlActual;
+                
+                
                 $result = $con->query($sqlActual);
                 $sr =1;
 
@@ -290,10 +291,14 @@ session_start();
     <hr>
 
     <?php
-    //include("parse.php");
-    
-    //parse($sqlActual);
-    ?>
+        $_SESSION["list"]->rewind();
+        while ($_SESSION["list"]->valid()){
+        //Print current node's value
+        echo $_SESSION["list"]->current()." |\n";
+        //Turn the cursor to next node
+        $_SESSION["list"]->next();
+        }
+        ?>
 
 </body>
 

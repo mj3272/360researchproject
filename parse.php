@@ -35,26 +35,19 @@ function parse($x) {
     }
 
 
-    echo "<br>";
-    echo $location;
 
     $x = "select * from restaurants where ";
 
-    echo "<br>";
-    echo $rating;
-    echo "<br>";
 
     $rating = rating($rating);
 
-    echo "<br>";
-    echo $rating;
-    echo "<br>";
+  
 
     if($rating != ''){
         $x = $x . $rating;
     }
 
-echo $x;
+
 
 return $x;
 
