@@ -230,48 +230,64 @@ if($price=="Price=\"VeryExpensive\"Price=\"Expensive\"Price=\"Moderate\"Price=\"
 }
 
 }
-/*
+
 //dining--------------------------------------------------
 
-//start with premise-------------------
-if(dining=="dining=Premise")
+function dining($dining){
+//start with Premise-------------------
+if($dining=="Dining=\"Premise\"")
 {
-    dining="dining=Premise or dining=Both";
+    return $dining="Dining=\"Premise\" or Dining=\"Both\"";
 }
 
-if(dining=="dining=Premise or dining=Both")
+if($dining=="Dining=\"Premise\"Dining=\"Both\"")
 {
-    dining="dining=Premise or dining=Both or dining=Carryout";
+    return $dining="Dining=\"Premise\" or Dining=\"Both\" or Dining=\"Carryout\"";
 }
 
-//start with carryout
-
-if(dining=="dining=Carryout")
+if($dining=="Dining=\"Premise\"Dining=\"Both\"Dining=\"Carryout\"")
 {
-    dining="dining=Carryout or dining=Both";
+    return $dining="Dining=\"Premise\" or Dining=\"Both\" or Dining=\"Carryout\"";
 }
 
-if(dining=="dining=Carryout or dining=Both")
+//start with Carryout
+
+if($dining=="Dining=\"Carryout\"")
 {
-    dining="dining=Carryout or dining=Both or dining=Premise";
+    return $dining="Dining=\"Carryout\" or Dining=\"Both\"";
 }
 
-//start with both
-
-if(dining=="dining=Both")
+if($dining=="Dining=\"Carryout\"Dining=\"Both\"")
 {
-    dining="dining=Both or dining=Carryout";
+    return $dining="Dining=\"Carryout\" or Dining=\"Both\" or Dining=\"Premise\"";
 }
 
-if(dining=="dining=Both or dining=Carryout")
+if($dining=="Dining=\"Carryout\"Dining=\"Both\"Dining=\"Premise\"")
 {
-    dining="dining=Both or dining=Carryout or dining=Premise";
+    return $dining="Dining=\"Carryout\" or Dining=\"Both\" or Dining=\"Premise\"";
 }
 
+//start with Both
+
+if($dining=="Dining=\"Both\"")
+{
+    return $dining="Dining=\"Both\" or Dining=\"Carryout\"";
+}
+
+if($dining=="Dining=\"Both\"Dining=\"Carryout\"")
+{
+    return $dining="Dining=\"Both\" or Dining=\"Carryout\" or Dining=\"Premise\"";
+}
+
+if($dining=="Dining=\"Both\"Dining=\"Carryout\"Dining=\"Premise\"")
+{
+    return $dining="Dining=\"Both\" or Dining=\"Carryout\" or Dining=\"Premise\"";
+}
+}
 //location----------------------------------------------
 
 
-*/
+
 
 
 ?>
