@@ -94,7 +94,7 @@ session_start();
 
             <label for="dining">Dining:</label>
             <select id="dining" name="dining">
-                <option selected="selected" value="">
+                <option selected="selected" value="">button1
                     Any
                 </option>
                 <option value=<?php echo QueryWhere::DiningCarryout?>>Carryout</option>
@@ -208,6 +208,12 @@ session_start();
             //echo "Conversation has ended, please begin a new query";
             $_SESSION["list"] =  new SplDoublyLinkedList();
             $_SESSION["Begin"] = 0;
+            $_SESSION["LFlag"]=false;
+            $_SESSION["CFlag"]=false;
+            $_SESSION["RFlag"]=false;
+            $_SESSION["PFlag"]=false;
+            $_SESSION["DFlag"]=false;
+            $_SESSION["DisjunctiveFlag"]=false;
         }
         function button2($x) {
             //$_SESSION["Begin"] = 1;
@@ -257,17 +263,18 @@ session_start();
                             $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-2);
                             $_SESSION["list"]->pop();
                             $sqlActual = parse($sqlActual);
-                        $_SESSION["list"]->push($sqlActual);
+                            $_SESSION["list"]->push($sqlActual);
                         }
                         else{
                             $sqlActual = parse($sqlActual);
-                        $_SESSION["list"]->push($sqlActual);
+                            $_SESSION["list"]->push($sqlActual);
                         }
                         $_SESSION["DisjunctiveFlag"]=true;
                     }
 
                     
                     if(array_key_exists('buttonCumulative', $_POST)) {
+                        $_SESSION["DisjunctiveFlag"]=false;
                         $sqlActual = parse($sqlActual);
                         $_SESSION["list"]->push($sqlActual);
                     }
