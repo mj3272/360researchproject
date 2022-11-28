@@ -34,6 +34,7 @@ function parse($x) {
         }
     }
 
+
     //reseting the global flags
     if ($_SESSION["LFlag"]==true && $_SESSION["CFlag"]==true && $_SESSION["RFlag"]==true && $_SESSION["PFlag"]==true && $_SESSION["DFlag"]==true){
         $_SESSION["LFlag"]=false;
@@ -63,14 +64,57 @@ function parse($x) {
 
     $inUse = false;
 
+    //Location distance
+    if($_SESSION["LFlag"]==false && !$inUse){
+        $_SESSION["LFlag"]= true; 
+        $inUse = true;
+        $location = location($location);
+
+        if($location == ""){
+            echo "<h1> ERROR LOCATION DISTANCE FUNCTION DID NOT RETURN </h1>";
+        }
+        
+
+        //building the return
+        $w ="";
+        $or = false;
+        $once = 0;
+        print_r($array);
+         
+        foreach($array as $token){
+            if(str_contains($token, "and")){
+                $or = false;
+            }
+            
+            if(str_contains($token, "Location")){
+                if($once==0){
+                    $w = $w . ' ' . $location . ' ' ;
+                    $once = 1;
+                }
+                $or = true;
+            }
+            elseif($or && str_contains($token, "or")){
+
+            }
+            else{
+                $w = $w . $token . ' ';
+            }
+
+        }
+    }
+
     //Rating distance
     if($_SESSION["RFlag"]==false && !$inUse){
-        $_SESSION["RFlag"]= true; //need to remove this if working
+        $_SESSION["RFlag"]= true; 
         $inUse = true;
         $rating = rating($rating);
 
+        if($rating == ""){
+            echo "<h1> ERROR RATING DISTANCE FUNCTION DID NOT RETURN </h1>";
+        }
+
         //building the return
-        $x ="";
+        $w ="";
         $or = false;
         $once = 0;
          print_r($array);
@@ -82,7 +126,7 @@ function parse($x) {
             
             if(str_contains($token, "Rating")){
                 if($once==0){
-                    $x = $x . ' ' . $rating . ' ' ;
+                    $w = $w . ' ' . $rating . ' ' ;
                     $once = 1;
                 }
                 $or = true;
@@ -91,7 +135,7 @@ function parse($x) {
 
             }
             else{
-                $x = $x . $token . ' ';
+                $w = $w . $token . ' ';
             }
 
         }
@@ -99,12 +143,16 @@ function parse($x) {
 
     //Price distance
     if($_SESSION["PFlag"]==false && !$inUse){
-        $_SESSION["PFlag"]= true; //need to remove this if working
+        $_SESSION["PFlag"]= true;
         $inUse = true;
         $price = price($price);
 
+        if($price == ""){
+            echo "<h1> ERROR PRICE DISTANCE FUNCTION DID NOT RETURN </h1>";
+        }
+
         //building the return
-        $x ="";
+        $w ="";
         $or = false;
         $once = 0;
          print_r($array);
@@ -116,7 +164,7 @@ function parse($x) {
 
             if(str_contains($token, "Price")){
                 if($once==0){
-                    $x = $x . ' ' . $price . ' ' ;
+                    $w = $w . ' ' . $price . ' ' ;
                     $once = 1;
                 }
                 $or = true;
@@ -126,7 +174,7 @@ function parse($x) {
             }
             else{
                 $or = false;
-                $x = $x . $token . ' ';
+                $w = $w . $token . ' ';
             }
 
         }
@@ -140,7 +188,7 @@ function parse($x) {
     echo "<br>";
 
     
-return $x;
+return $w;
 
 
 }

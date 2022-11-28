@@ -125,7 +125,7 @@ session_start();
         <?php if ($_SESSION["Begin"] == '1'){ ?> disabled <?php   } ?>
         <form method="post">
             <input type="submit" name="buttonCumulative" class="button" value="Cumulative" />
-            <input type="submit" name="button" class="button" value="Disjunctive" />
+            <input type="submit" name="buttonDisjunctive" class="button" value="Disjunctive" />
             <input type="submit" name="buttonEnd" class="button" value="End" />
             <input type="submit" name="buttonBackTrack" class="button" value="Backtrack" />
             <input type="submit" name="buttonFresh" class="button" value="Fresh Conversation" />
@@ -251,6 +251,22 @@ session_start();
                 if($_SESSION["list"]->offsetExists($_SESSION["list"]->count()-1)){
                     $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-1);
 
+                    
+                    if(array_key_exists('buttonDisjunctive', $_POST)){
+                        if($_SESSION["DisjunctiveFlag"]==true){
+                            $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-2);
+                            $_SESSION["list"]->pop();
+                            $sqlActual = parse($sqlActual);
+                        $_SESSION["list"]->push($sqlActual);
+                        }
+                        else{
+                            $sqlActual = parse($sqlActual);
+                        $_SESSION["list"]->push($sqlActual);
+                        }
+                        $_SESSION["DisjunctiveFlag"]=true;
+                    }
+
+                    
                     if(array_key_exists('buttonCumulative', $_POST)) {
                         $sqlActual = parse($sqlActual);
                         $_SESSION["list"]->push($sqlActual);

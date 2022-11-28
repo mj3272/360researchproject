@@ -17,6 +17,8 @@ session_start();
     $_SESSION["PFlag"]=false;
     $_SESSION["DFlag"]=false;
 
+    $_SESSION["DisjunctiveFlag"]=false;
+
 
 
 ?>
