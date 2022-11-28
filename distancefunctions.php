@@ -159,6 +159,10 @@ if($price=="Price=\"Inexpensive\"Price=\"Moderate\"Price=\"Expensive\"")
     return $price="Price=\"Inexpensive\" or Price=\"Moderate\" or Price=\"Expensive\" or Price=\"VeryExpensive\"";
 }
 
+if($price=="Price=\"Inexpensive\"Price=\"Moderate\"Price=\"Expensive\"Price=\"VeryExpensive\"")
+{
+    return $price="Price=\"Inexpensive\" or Price=\"Moderate\" or Price=\"Expensive\" or Price=\"VeryExpensive\"";
+}
 
 //starting with moderate------------------------------------
 if($price=="Price=\"Moderate\"")
@@ -172,6 +176,11 @@ if($price=="Price=\"Moderate\"Price=\"Inexpensive\"")
 }
 
 if($price=="Price=\"Moderate\"Price=\"Inexpensive\"Price=\"Expensive\"")
+{
+    return $price="Price=\"Moderate\" or Price=\"Inexpensive\" or Price=\"Expensive\" or Price=\"VeryExpensive\"";
+}
+
+if($price=="Price=\"Moderate\"Price=\"Inexpensive\"Price=\"Expensive\"Price=\"VeryExpensive\"")
 {
     return $price="Price=\"Moderate\" or Price=\"Inexpensive\" or Price=\"Expensive\" or Price=\"VeryExpensive\"";
 }
@@ -193,6 +202,11 @@ if($price=="Price=\"Expensive\"Price=\"Moderate\"Price=\"Inexpensive\"")
     return $price="Price=\"Expensive\" or Price=\"Moderate\" or Price=\"Inexpensive\" or Price=\"VeryExpensive\"";
 }
 
+if($price=="Price=\"Expensive\"Price=\"Moderate\"Price=\"Inexpensive\"Price=\"VeryExpensive\"")
+{
+    return $price="Price=\"Expensive\" or Price=\"Moderate\" or Price=\"Inexpensive\" or Price=\"VeryExpensive\"";
+}
+
 //starting with veryexpensive-------------------------
 
 if($price=="Price=\"VeryExpensive\"")
@@ -209,6 +223,12 @@ if($price=="Price=\"VeryExpensive\"Price=\"Expensive\"Price=\"Moderate\"")
 {
     return $price="Price=\"VeryExpensive\" or Price=\"Expensive\" or Price=\"Moderate\" or Price=\"Inexpensive\"";
 }
+
+if($price=="Price=\"VeryExpensive\"Price=\"Expensive\"Price=\"Moderate\"Price=\"Inexpensive\"")
+{
+    return $price="Price=\"VeryExpensive\" or Price=\"Expensive\" or Price=\"Moderate\" or Price=\"Inexpensive\"";
+}
+
 }
 /*
 //dining--------------------------------------------------
