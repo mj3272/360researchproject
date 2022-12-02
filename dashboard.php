@@ -115,6 +115,7 @@ session_start();
         }
         else if(array_key_exists('buttonFresh', $_POST)) {
             $_SESSION["Begin"] = 0;
+            button4();
         }
         ?>
             <input type="submit" value="Begin" name="buttonBegin" <?php if ($_SESSION["Begin"] == '1'){ ?> disabled
@@ -225,6 +226,15 @@ session_start();
             if($_SESSION["list"]->count() > 1){
                 $_SESSION["list"]->pop();
             }
+        }
+        function button4(){
+            
+            $_SESSION["LFlag"]=false;
+            $_SESSION["CFlag"]=false;
+            $_SESSION["RFlag"]=false;
+            $_SESSION["PFlag"]=false;
+            $_SESSION["DFlag"]=false;
+            $_SESSION["DisjunctiveFlag"]=false;
         }
 
     ?>

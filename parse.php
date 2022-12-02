@@ -79,7 +79,7 @@ function parse($x) {
         $w ="";
         $or = false;
         $once = 0;
-        print_r($array);
+        //print_r($array);
          
         foreach($array as $token){
             if(str_contains($token, "and")){
@@ -117,7 +117,7 @@ function parse($x) {
         $w ="";
         $or = false;
         $once = 0;
-         print_r($array);
+         //print_r($array);
          
         foreach($array as $token){
             if(str_contains($token, "and")){
@@ -155,7 +155,7 @@ function parse($x) {
         $w ="";
         $or = false;
         $once = 0;
-         print_r($array);
+         //print_r($array);
          
         foreach($array as $token){
             if(str_contains($token, "and")){
@@ -194,7 +194,7 @@ function parse($x) {
         $w ="";
         $or = false;
         $once = 0;
-         print_r($array);
+         //print_r($array);
          
         foreach($array as $token){
             if(str_contains($token, "and")){
@@ -222,9 +222,9 @@ function parse($x) {
 
 
 
-    echo "<br>";
-    echo "<h1>" . $x . "</h1>" ; 
-    echo "<br>";
+    //echo "<br>";
+    //echo "<h1>" . $x . "</h1>" ; 
+    //echo "<br>";
 
     
 return $w;
