@@ -922,7 +922,7 @@ function cuisine($cuisine){
     }
 
 
-
+   return $cuisine;
     
 }
 
