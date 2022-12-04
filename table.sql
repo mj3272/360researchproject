@@ -32,7 +32,7 @@ VALUES
         ('Bear Express', 'Hayden', 'Chinese', '***', 'VeryExpensive', 'Both', 75),
         ('Bluebird Cafe', 'PostFalls', 'French', '**', 'Inexpensive', 'Premise', 63),
         ('Spaghetti Bros', 'Spokane', 'Italian', '*****', 'VeryExpensive', 'Carryout', 80),
-        ('Two Planets Cafe', 'Mosocw', 'French', '*', 'Expensive', 'Premise', 53),
+        ('Two Planets Cafe', 'Moscow', 'French', '*', 'Expensive', 'Premise', 53),
         ('Felipes Tacos', 'Spokane', 'Mexican', '***', 'Moderate', 'Carryout', 6),
         ('Jalapenos', 'Lewiston', 'Mexican', '****', 'VeryExpensive', 'Premise', 34),
         ('Noodle House', 'PostFalls', 'Korean', '*','Moderate', 'Both', 26),

@@ -115,6 +115,45 @@ function parse($x) {
         }
     }
 
+    //Cuisine distance
+    if($_SESSION["CFlag"]==false && !$inUse){
+        $_SESSION["CFlag"]= true; 
+        $inUse = true;
+        $cuisine = cuisine($cuisine);
+
+        if($cuisine == ""){
+            echo "<h1> ERROR CUISINE DISTANCE FUNCTION DID NOT RETURN </h1>";
+        }
+        
+
+        //building the return
+        $w ="";
+        $or = false;
+        $once = 0;
+        //print_r($array);
+         
+        foreach($array as $token){
+            if(str_contains($token, "and")){
+                $or = false;
+            }
+            
+            if(str_contains($token, "Cuisine")){
+                if($once==0){
+                    $w = $w . ' ' . $cuisine . ' ' ;
+                    $once = 1;
+                }
+                $or = true;
+            }
+            elseif($or && str_contains($token, "or")){
+
+            }
+            else{
+                $w = $w . $token . ' ';
+            }
+
+        }
+    }
+
     //Rating distance
     if($_SESSION["RFlag"]==false && !$inUse){
         $_SESSION["RFlag"]= true; 

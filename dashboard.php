@@ -117,9 +117,10 @@ session_start();
 
             </select>
 
-            <label for="YelpReviews"># Of Yelp Reviews </label>
+            <label for="YelpReviews"># Of Yelp Reviews: </label>
             <input id="YelpReviews" name="YelpReviews" value="Any">
             <br>
+
 
 
             <input type="submit" value="Begin" name="buttonBegin" <?php if ($_SESSION["Begin"] == '1'){ ?> disabled
@@ -129,6 +130,21 @@ session_start();
 
         <?php if ($_SESSION["Begin"] == '1'){ ?> disabled <?php   } ?>
         <form method="post">
+            <label for="relax">Relaxation:</label>
+            <select id="relax" name="relax">
+                <option selected="selected" value="">
+                    Default
+                </option>
+                <option value="Location">Location</option>
+                <option value="Cuisine">Cuisine</option>
+                <option value="Rating">Rating</option>
+                <option value="Price">Price</option>
+                <option value="Dining">Dining</option>
+                <option value="YelpReviews">YelpReviews</option>
+
+
+            </select>
+
             <input type="submit" name="buttonCumulative" class="button" value="Cumulative" />
             <input type="submit" name="buttonDisjunctive" class="button" value="Disjunctive" />
             <input type="submit" name="buttonEnd" class="button" value="End" />
@@ -201,6 +217,67 @@ session_start();
 
                 $sql = $_POST['SQL'];
                 }
+
+                if(isset($_POST['relax']) ){
+
+                    if($_POST['relax'] == "Location"){
+                        $_SESSION["LFlag"]=false;
+                        $_SESSION["CFlag"]=true;
+                        $_SESSION["RFlag"]=true;
+                        $_SESSION["PFlag"]=true;
+                        $_SESSION["DFlag"]=true;
+                        $_SESSION["YFlag"]=true;
+                    }
+
+                    if($_POST['relax'] == "Cuisine"){
+                        $_SESSION["LFlag"]=true;
+                        $_SESSION["CFlag"]=false;
+                        $_SESSION["RFlag"]=true;
+                        $_SESSION["PFlag"]=true;
+                        $_SESSION["DFlag"]=true;
+                        $_SESSION["YFlag"]=true;
+                    }
+
+                    if($_POST['relax'] == "Rating"){
+                        $_SESSION["LFlag"]=true;
+                        $_SESSION["CFlag"]=true;
+                        $_SESSION["RFlag"]=false;
+                        $_SESSION["PFlag"]=true;
+                        $_SESSION["DFlag"]=true;
+                        $_SESSION["YFlag"]=true;
+                    }
+
+                    if($_POST['relax'] == "Price"){
+                        $_SESSION["LFlag"]=true;
+                        $_SESSION["CFlag"]=true;
+                        $_SESSION["RFlag"]=true;
+                        $_SESSION["PFlag"]=false;
+                        $_SESSION["DFlag"]=true;
+                        $_SESSION["YFlag"]=true;
+                    }
+
+                    if($_POST['relax'] == "Dining"){
+                        $_SESSION["LFlag"]=true;
+                        $_SESSION["CFlag"]=true;
+                        $_SESSION["RFlag"]=true;
+                        $_SESSION["PFlag"]=true;
+                        $_SESSION["DFlag"]=false;
+                        $_SESSION["YFlag"]=true;
+                    }
+
+                    if($_POST['relax'] == "YelpReviews"){
+                        $_SESSION["LFlag"]=true;
+                        $_SESSION["CFlag"]=true;
+                        $_SESSION["RFlag"]=true;
+                        $_SESSION["PFlag"]=true;
+                        $_SESSION["DFlag"]=true;
+                        $_SESSION["YFlag"]=false;
+                    }
+
+
+                }
+                
+                
                 ?>
 
 

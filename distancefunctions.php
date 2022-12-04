@@ -717,4 +717,40 @@ function yelpReviews($yelpReviews){
 
 
 }
+
+//Cuisine----------------------------------------------
+// Vietnamese Korean Chinese | Pakistan Tibetan  | French French | American BBQ  Mexican
+
+function cuisine($cuisine){
+
+        function asian($cuisine){
+            if(str_contains($cuisine, "Vietnamese") && str_contains($cuisine, "Korean") && str_contains($cuisine, "Chinese")){
+                return true;
+            }
+        }
+
+        function east($cuisine){
+            if(str_contains($cuisine, "Pakistan") && str_contains($cuisine, "Tibetan")){
+            return true;
+            }
+         }
+
+    function european($cuisine){
+        if(str_contains($cuisine, "French") && str_contains($cuisine, "French")){
+            return true;
+        }
+    }
+
+    function northAmerican($cuisine){
+        if(str_contains($cuisine, "American") && str_contains($cuisine, "BBQ") && str_contains($cuisine, "Mexican")){
+            return true;
+        }
+    }
+
+    //
+
+
+}
+
+    
 ?>
