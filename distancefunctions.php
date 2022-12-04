@@ -644,9 +644,77 @@ function yelpReviews($yelpReviews){
         
         $yelpReviews = "YelpReviews>=" . $num;
 
-        echo $num;
+        
         return $yelpReviews;
 
     }
+
+    if(str_contains($yelpReviews, "<=")){
+        $yelpArr = explode("<=", $yelpReviews);
+        $num = $yelpArr[1];
+        $num = $num +10;
+        if($num > 100){
+            $num = 100;
+        }
+        
+        $yelpReviews = "YelpReviews<=" . $num;
+
+       
+        return $yelpReviews;
+
+    }
+
+    if(str_contains($yelpReviews, ">")){
+        $yelpArr = explode(">", $yelpReviews);
+        $num = $yelpArr[1];
+        $num = $num -10;
+        if($num < 0){
+            $num = 0;
+        }
+        
+        $yelpReviews = "YelpReviews>" . $num;
+
+        
+        return $yelpReviews;
+
+    }
+
+    if(str_contains($yelpReviews, "<")){
+        $yelpArr = explode("<", $yelpReviews);
+        $num = $yelpArr[1];
+        $num = $num +10;
+        if($num > 100){
+            $num = 100;
+        }
+        
+        $yelpReviews = "YelpReviews<" . $num;
+
+        
+        return $yelpReviews;
+
+    }
+
+    if(str_contains($yelpReviews, "=")){
+        $yelpArr = explode("=", $yelpReviews);
+        $num = $yelpArr[1];
+
+        
+        if($num >= 50){
+            $num = $num -10;
+            $yelpReviews = "YelpReviews>=" . $num;
+        }
+        else {
+            $num = $num +10;
+            $yelpReviews = "YelpReviews<=" . $num;
+        }
+        
+        
+
+        
+        return $yelpReviews;
+
+    }
+
+
 }
 ?>
