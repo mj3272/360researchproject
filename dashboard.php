@@ -104,7 +104,7 @@ session_start();
             </select>
 
             <label for="YelpReviews"># Of Yelp Reviews </label>
-            <input id="YelpReviews">
+            <input id="YelpReviews" name="YelpReviews" value="Any">
             <br>
 
             <?php
@@ -183,6 +183,16 @@ session_start();
                 }
                 else{
                 $sql = $sql . " and " . $_POST['dining'];
+                }
+                }
+                if(isset($_POST['YelpReviews']) && ($_POST['YelpReviews'] != "Any" && $_POST['YelpReviews'] != null))
+                {
+                if($whereCount ==0){
+                $whereCount++;
+                $sql = $sql . " where " . "YelpReviews" . $_POST['YelpReviews'];
+                }
+                else{
+                $sql = $sql . " and " . "YelpReviews" . $_POST['YelpReviews'];
                 }
                 }
 
