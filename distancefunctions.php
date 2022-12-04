@@ -722,6 +722,46 @@ function yelpReviews($yelpReviews){
 // Vietnamese Korean Chinese | Pakistan Tibetan  | French French | American BBQ  Mexican
 
 function cuisine($cuisine){
+    $cuisine = explode("\"", $cuisine);
+    $cuisine = implode(" ", $cuisine);
+    $cuisine = explode("Cuisine=", $cuisine);
+    $cuisine = implode($cuisine);
+    $cuisine = explode("(", $cuisine);
+    $cuisine = implode($cuisine);
+    $cuisine = explode(")", $cuisine);
+    $cuisine = implode($cuisine);
+    
+
+    function Add($cuisine, $add){
+        $cuisineExplode = explode(" ", $cuisine);
+        
+        $cuisineArr = [];
+        foreach($cuisineExplode as $token){
+            if($token != ""){
+                array_push($cuisineArr, $token);
+            }
+            
+        }
+        
+        //print_r($cuisineArr);
+
+        $w = "(";
+
+        foreach($cuisineArr as $token){
+            if(($token == $cuisineArr[0] ) && $token!= ""){
+                $w = $w . "Cuisine=\"" . $token . "\"";
+            }
+            elseif($token!= ""){
+                $w = $w . " or Cuisine=\"" . $token . "\"";
+            }
+            
+        }
+
+        $w = $w . " or Cuisine=\"" . $add . "\"";
+        $w = $w . ")";
+        return $w;
+    }
+
 
         function asian($cuisine){
             if(str_contains($cuisine, "Vietnamese") && str_contains($cuisine, "Korean") && str_contains($cuisine, "Chinese")){
@@ -747,7 +787,47 @@ function cuisine($cuisine){
         }
     }
 
-    //
+    function notAll($cuisine){
+        return (!asian($cuisine) && !east($cuisine) && !european($cuisine) && !northAmerican($cuisine));
+    }
+
+
+    
+    //base asain 2 
+
+    //Korean & Vietnamese
+    if(!asian($cuisine) && str_contains($cuisine, "Vietnamese") && str_contains($cuisine, "Korean")){
+        return Add($cuisine, "Chinese");
+    }
+
+    //Korean & Chinese
+    if(!asian($cuisine) && str_contains($cuisine, "Chinese") && str_contains($cuisine, "Korean")){
+        return Add($cuisine, "Vietnamese");
+    }
+
+    //Vietnamese & Chinese
+    if(!asian($cuisine) && str_contains($cuisine, "Chinese") && str_contains($cuisine, "Vietnamese")){
+        return Add($cuisine, "Korean");
+    }
+
+    //base asain 1
+
+    //Korean
+    if(!asian($cuisine) &&  str_contains($cuisine, "Korean")){
+        return Add($cuisine, "Chinese");
+    }
+
+    //Chinese
+    if(!asian($cuisine) &&  str_contains($cuisine, "Chinese")){
+        return Add($cuisine, "Vietnamese");
+    }
+
+    //Vietnamese
+    if(!asian($cuisine) &&  str_contains($cuisine, "Vietnamese")){
+        return Add($cuisine, "Chinese");
+    }
+
+
 
 
 }
