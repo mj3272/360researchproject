@@ -23,8 +23,22 @@ session_start();
 
 
         <form method="post">
+            <?php
+        
+        if(array_key_exists('buttonEnd', $_POST)) {
+            //echo "Conversation has ended, please begin a new query";
+            button1();
+        }
+        else if(array_key_exists('buttonBegin', $_POST)) {
+            $_SESSION["Begin"] = 1;
+        }
+        else if(array_key_exists('buttonFresh', $_POST)) {
+            $_SESSION["Begin"] = 0;
+            button4();
+        }
+        ?>
             <p>SQL Query: <input type="text" name="SQL" style="width:100%" />
-                <input type="submit" />
+                <input type="submit" name="buttonBegin" <?php if ($_SESSION["Begin"] == '1'){ ?> disabled <?php   } ?>>
             </p>
 
         </form>
@@ -107,20 +121,7 @@ session_start();
             <input id="YelpReviews" name="YelpReviews" value="Any">
             <br>
 
-            <?php
-        
-        if(array_key_exists('buttonEnd', $_POST)) {
-            //echo "Conversation has ended, please begin a new query";
-            button1();
-        }
-        else if(array_key_exists('buttonBegin', $_POST)) {
-            $_SESSION["Begin"] = 1;
-        }
-        else if(array_key_exists('buttonFresh', $_POST)) {
-            $_SESSION["Begin"] = 0;
-            button4();
-        }
-        ?>
+
             <input type="submit" value="Begin" name="buttonBegin" <?php if ($_SESSION["Begin"] == '1'){ ?> disabled
                 <?php   } ?>>
 
