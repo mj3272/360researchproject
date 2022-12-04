@@ -21,14 +21,14 @@ session_start();
 
     <div>
 
-        <!-- manual query input
+
         <form method="post">
             <p>SQL Query: <input type="text" name="SQL" style="width:100%" />
                 <input type="submit" />
             </p>
 
         </form>
-    -->
+
 
 
 
@@ -102,6 +102,9 @@ session_start();
                 <option value=<?php echo QueryWhere::DiningBoth?>>Both</option>
 
             </select>
+
+            <label for="YelpReviews"># Of Yelp Reviews </label>
+            <input id="YelpReviews">
             <br>
 
             <?php
@@ -259,6 +262,8 @@ session_start();
                         <th>Rating</th>
                         <th>Price</th>
                         <th>Dining</th>
+                        <th># Of Yelp Reviews</th>
+
 
                     </tr>
 
@@ -313,6 +318,7 @@ session_start();
                             <td><?php echo $row['Rating'];?></td>
                             <td><?php echo $row['Price'];?></td>
                             <td><?php echo $row['Dining'];?></td>
+                            <td><?php echo $row['YelpReviews'];?></td>
 
                         </form>
                     </tr>
