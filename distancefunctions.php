@@ -776,7 +776,7 @@ function cuisine($cuisine){
          }
 
     function european($cuisine){
-        if(str_contains($cuisine, "French") && str_contains($cuisine, "French")){
+        if(str_contains($cuisine, "French") && str_contains($cuisine, "Italian")){
             return true;
         }
     }
@@ -829,7 +829,101 @@ function cuisine($cuisine){
 
 
 
+    //base east 1
 
+    //Pakistan
+    if(!east($cuisine) &&  str_contains($cuisine, "Pakistan")){
+        return Add($cuisine, "Tibetan");
+    }
+
+    //Tibetan
+    if(!east($cuisine) &&  str_contains($cuisine, "Tibetan")){
+        return Add($cuisine, "Pakistan");
+    }
+
+
+
+    //base european 1
+
+    //Italian
+    if(!european($cuisine) &&  str_contains($cuisine, "Italian")){
+        return Add($cuisine, "French");
+    }
+
+    //French
+    if(!european($cuisine) &&  str_contains($cuisine, "French")){
+        return Add($cuisine, "Italian");
+    }
+
+
+    //base northamerican 2
+
+    //American BBQ
+    if(!northAmerican($cuisine) &&  str_contains($cuisine, "American") &&  str_contains($cuisine, "BBQ")){
+        return Add($cuisine, "Mexican");
+    }
+
+    //American Mexican
+    if(!northAmerican($cuisine) &&  str_contains($cuisine, "American") &&  str_contains($cuisine, "Mexican")){
+        return Add($cuisine, "BBQ");
+    }
+
+    //BBQ Mexican
+    if(!northAmerican($cuisine) &&  str_contains($cuisine, "BBQ") &&  str_contains($cuisine, "Mexican")){
+        return Add($cuisine, "American");
+    }
+
+    //base northamerican 1
+
+    //American
+    if(!northAmerican($cuisine) &&  str_contains($cuisine, "American") ){
+        return Add($cuisine, "BBQ");
+    }
+
+    //BBQ 
+    if(!northAmerican($cuisine) &&  str_contains($cuisine, "BBQ") ){
+        return Add($cuisine, "American");
+    }
+
+    //Mexican
+    if(!northAmerican($cuisine) &&  str_contains($cuisine, "Mexican") ){
+        return Add($cuisine, "American");
+    }
+
+
+    //Adding east to asian
+    if(asian($cuisine) &&  !east($cuisine) ){
+        return Add($cuisine, "Pakistan");
+    }
+
+    //Adding asian to east
+    if(!asian($cuisine) &&  east($cuisine) ){
+        return Add($cuisine, "Chinese");
+    }
+
+    //Adding european to all asian
+    if(asian($cuisine) &&  east($cuisine)  && !european($cuisine)){
+        return Add($cuisine, "Italian");
+    }
+
+    //Adding north american to european
+    if(european($cuisine) && !northAmerican($cuisine)){
+        return Add($cuisine, "American");
+    }
+
+    //Adding european to north american
+    if(!european($cuisine) && northAmerican($cuisine)){
+        return Add($cuisine, "Italian");
+    }
+
+    //Adding start of asian to european and north american
+    if(european($cuisine) && northAmerican($cuisine) && !asian($cuisine) &&  !east($cuisine)){
+        return Add($cuisine, "Chinese");
+    }
+
+
+
+    
 }
 
     
