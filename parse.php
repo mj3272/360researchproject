@@ -12,6 +12,7 @@ function parse($x) {
     $rating = '';
     $price = '';
     $dining = '';
+    $yelpReviews = '';
 
     //Creating tokens of each
     foreach($array as $value){
@@ -32,16 +33,24 @@ function parse($x) {
         if(str_contains($value, "Dining")){
             $dining = $dining . $value;
         }
+        if(str_contains($value, "YelpReviews")){
+            $yelpReviews = $yelpReviews . $value;
+        }
+        
+
     }
 
 
+
+
     //reseting the global flags
-    if ($_SESSION["LFlag"]==true && $_SESSION["CFlag"]==true && $_SESSION["RFlag"]==true && $_SESSION["PFlag"]==true && $_SESSION["DFlag"]==true){
+    if ($_SESSION["LFlag"]==true && $_SESSION["CFlag"]==true && $_SESSION["RFlag"]==true && $_SESSION["PFlag"]==true && $_SESSION["DFlag"]==true && $_SESSION["YFlag"]==true){
         $_SESSION["LFlag"]=false;
         $_SESSION["CFlag"]=false;
         $_SESSION["RFlag"]=false;
         $_SESSION["PFlag"]=false;
         $_SESSION["DFlag"]=false;
+        $_SESSION["YFlag"]=false;
     }
 
     //checking if strings had content
@@ -59,6 +68,9 @@ function parse($x) {
     }
     if($dining == ''){
         $_SESSION["DFlag"]= true;
+    }
+    if($yelpReviews == ''){
+        $_SESSION["YFlag"]= true;
     }
 
 
@@ -186,7 +198,7 @@ function parse($x) {
         $inUse = true;
         $dining = dining($dining);
 
-        if($price == ""){
+        if($dining == ""){
             echo "<h1> ERROR DINING DISTANCE FUNCTION DID NOT RETURN </h1>";
         }
 
@@ -219,6 +231,46 @@ function parse($x) {
         }
     }
 
+    //YelpReview distance
+    if($_SESSION["YFlag"]==false && !$inUse){
+        $_SESSION["YFlag"]= true;
+        $inUse = true;
+        $yelpReviews = yelpReviews($yelpReviews);
+
+        if($yelpReviews == ""){
+            echo "<h1> ERROR YELPREVIEWS DISTANCE FUNCTION DID NOT RETURN </h1>";
+        }
+
+        //building the return
+        $w ="";
+        $or = false;
+        $once = 0;
+         //print_r($array);
+         
+        foreach($array as $token){
+            if(str_contains($token, "and")){
+                $or = false;
+            }
+
+            if(str_contains($token, "YelpReviews")){
+                if($once==0){
+                    $w = $w . ' ' . $yelpReviews . ' ' ;
+                    $once = 1;
+                }
+                $or = true;
+            }
+            elseif($or && str_contains($token, "or")){
+
+            }
+            else{
+                $or = false;
+                $w = $w . $token . ' ';
+            }
+
+        }
+    }
+    
+
 
 
 
@@ -226,7 +278,7 @@ function parse($x) {
     //echo "<h1>" . $x . "</h1>" ; 
     //echo "<br>";
 
-    
+   
 return $w;
 
 

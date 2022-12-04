@@ -417,7 +417,7 @@ if($location=="(Location=\"Hayden\"Location=\"CoeurdAlene\"Location=\"PostFalls\
 
 if($location=="Location=\"PostFalls\"")
 {
-    return $location="(Location=\"PostFalls\" or Location=\"CoeurdAlene\")";
+    return $location="(Location=\"Post Falls\" or Location=\"CoeurdAlene\")";
 }
 
 if($location=="(Location=\"PostFalls\"Location=\"CoeurdAlene\")")
@@ -628,4 +628,25 @@ if($location=="(Location=\"Spokane\"Location=\"PostFalls\"Location=\"CoeurdAlene
 
 }
 
+
+//YelpReviews----------------------------------------------
+// >= <= > < =
+
+function yelpReviews($yelpReviews){
+
+    if(str_contains($yelpReviews, ">=")){
+        $yelpArr = explode(">=", $yelpReviews);
+        $num = $yelpArr[1];
+        $num = $num -10;
+        if($num < 0){
+            $num = 0;
+        }
+        
+        $yelpReviews = "YelpReviews>=" . $num;
+
+        echo $num;
+        return $yelpReviews;
+
+    }
+}
 ?>
