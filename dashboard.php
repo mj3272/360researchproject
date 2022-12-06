@@ -409,12 +409,10 @@ session_start();
                 // If initial context exists, check for yelpReview value, strip it and then check each query for close to intent
             if($_SESSION["initialContext"]->offsetExists($_SESSION["initialContext"]->count()-1)){
                 $context = $_SESSION["initialContext"]->offsetGet($_SESSION["initialContext"]->count()-1);
-                
-                
-
                 // Getting value of inital contexts yelp reviews
-                $yelpContext = "";
+                
                 if (str_contains($context, "YelpReviews")){
+
 
                     $num = explode(" ", $context);
                     foreach($num as $token){
@@ -431,31 +429,33 @@ session_start();
 
 
 
-                }
+                
 
                 // Pulling real query and checking for the closest number to num
                 $contextCheck = $con->query($sqlActual);
-                echo "ok?";
+                
 
                 $bestDistance = 100;
                 while($contextRow = $contextCheck->fetch_assoc()){
-                    echo "ok?";
+                    
 
                     $distance = $contextRow['YelpReviews'] - $num;
 
                     if(abs($distance) < abs($bestDistance)){
                         $bestDistance = $distance;
-                        
+                        $queryDistance = $contextRow['YelpReviews'];
                     }
                     
                     
                 }
 
-            }
+            }}
                 
             
                 $sr =1;
-                while($row = $result->fetch_assoc()){?> <tr>
+                while($row = $result->fetch_assoc()){
+                    //Only printing if there is no initial context, or it is equal to the closest tuple
+                    if(!isset($bestDistance) || $row['YelpReviews'] == $queryDistance){?> <tr>
                         <form action="" method="post" role="form">
                             <td><?php echo $sr;?></td>
                             <td><?php echo $row['Name'];?></td>
@@ -468,7 +468,7 @@ session_start();
 
                         </form>
                     </tr>
-                    <?php $sr++; }
+                    <?php $sr++; }}
         ?>
                 </table>
             </div>
