@@ -449,6 +449,7 @@ session_start();
                     
                 }
 
+                echo "<h4> Showing only prefered tuples (results closest to the initial \"YelpReviews\" constraint) <h4>";
             }}
                 
             
