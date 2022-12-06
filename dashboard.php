@@ -34,6 +34,7 @@ session_start();
         }
         else if(array_key_exists('buttonFresh', $_POST)) {
             $_SESSION["Begin"] = 0;
+            $_SESSION["initialContext"] = new SplDoublyLinkedList();
             button4();
         }
         ?>
@@ -300,6 +301,7 @@ session_start();
         function button1() {
             //echo "Conversation has ended, please begin a new query";
             $_SESSION["list"] =  new SplDoublyLinkedList();
+            $_SESSION["initialContext"] = new SplDoublyLinkedList();
             $_SESSION["Begin"] = 0;
             $_SESSION["LFlag"]=false;
             $_SESSION["CFlag"]=false;
@@ -385,20 +387,74 @@ session_start();
                         $_SESSION["list"]->push($sqlActual);
                     }
                         
-
+                    if(array_key_exists('buttonBegin', $_POST)) {
+                        $_SESSION["initialContext"]->push($sqlActual);
+                    }
                     
                 }
                 else{
                     $sqlActual = $sql;
+
+                       
+                    
                     echo "List is Empty! ";
                 }
                 
                 
                 echo $sqlActual;
                 $result = $con->query($sqlActual);
+                
+
+             
+                // If initial context exists, check for yelpReview value, strip it and then check each query for close to intent
+            if($_SESSION["initialContext"]->offsetExists($_SESSION["initialContext"]->count()-1)){
+                $context = $_SESSION["initialContext"]->offsetGet($_SESSION["initialContext"]->count()-1);
+                
+                
+
+                // Getting value of inital contexts yelp reviews
+                $yelpContext = "";
+                if (str_contains($context, "YelpReviews")){
+
+                    $num = explode(" ", $context);
+                    foreach($num as $token){
+                        if (str_contains($token, "YelpReviews")){
+                            $num = $token;
+                        }
+                    }
+                    
+                    // Grabbing last 3 characters and checking if it is a number, else it will strip the last operator off
+                    $num = substr($num, -3, 3);
+                    if(!is_numeric($num)){
+                        $num = substr($num, -2, 2);
+                    }
+
+
+
+                }
+
+                // Pulling real query and checking for the closest number to num
+                $contextCheck = $con->query($sqlActual);
+                echo "ok?";
+
+                $bestDistance = 100;
+                while($contextRow = $contextCheck->fetch_assoc()){
+                    echo "ok?";
+
+                    $distance = $contextRow['YelpReviews'] - $num;
+
+                    if(abs($distance) < abs($bestDistance)){
+                        $bestDistance = $distance;
+                        
+                    }
+                    
+                    
+                }
+
+            }
+                
+            
                 $sr =1;
-
-
                 while($row = $result->fetch_assoc()){?> <tr>
                         <form action="" method="post" role="form">
                             <td><?php echo $sr;?></td>

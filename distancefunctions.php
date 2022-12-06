@@ -787,9 +787,6 @@ function cuisine($cuisine){
         }
     }
 
-    function notAll($cuisine){
-        return (!asian($cuisine) && !east($cuisine) && !european($cuisine) && !northAmerican($cuisine));
-    }
 
 
     

@@ -2,13 +2,16 @@
 //start session and initalize linked list
 session_start();
     $_SESSION["list"] = new SplDoublyLinkedList();
+    $_SESSION["initialContext"] = new SplDoublyLinkedList();
     $_SESSION["Begin"] = 0;
 
+    $_SESSION["initialContext"]->push('a');
     $_SESSION["list"]->push('a');
     $_SESSION["list"]->push('3');
     $_SESSION["list"]->push('v');
     $_SESSION["list"]->push('1');
     $_SESSION["list"]->push('p');
+    $_SESSION["initialContext"] = new SplDoublyLinkedList();
     $_SESSION["list"] = new SplDoublyLinkedList();
 
     $_SESSION["LFlag"]=false;
