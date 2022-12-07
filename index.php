@@ -42,16 +42,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <h1> Bryce H. & Marissa S. CS360 research project</h1>
     <p> Please direct youself to the SQL dashboard </p>
     <a href="./dashboard.php">Dashboard</a>
-
-    <?php
-        $_SESSION["list"]->rewind();
-        while ($_SESSION["list"]->valid()){
-        //Print current node's value
-        echo $_SESSION["list"]->current()."\n";
-        //Turn the cursor to next node
-        $_SESSION["list"]->next();
-        }
-        ?>
 </body>
 
 </html>

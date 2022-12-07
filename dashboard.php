@@ -296,7 +296,7 @@ session_start();
         }
         if(array_key_exists('buttonBackTrack', $_POST)) {
             button3();
-            $_SESSION["DisjunctiveFlag"]=false;
+            $_SESSION["disjunctiveFlag"]=false;
         }
         function button1() {
             //echo "Conversation has ended, please begin a new query";
@@ -309,7 +309,7 @@ session_start();
             $_SESSION["PFlag"]=false;
             $_SESSION["DFlag"]=false;
             $_SESSION["YFlag"]=false;
-            $_SESSION["DisjunctiveFlag"]=false;
+            $_SESSION["disjunctiveFlag"]=false;
         }
         function button2($x) {
             //$_SESSION["Begin"] = 1;
@@ -329,7 +329,7 @@ session_start();
             $_SESSION["PFlag"]=false;
             $_SESSION["DFlag"]=false;
             $_SESSION["YFlag"]=false;
-            $_SESSION["DisjunctiveFlag"]=false;
+            $_SESSION["disjunctiveFlag"]=false;
         }
 
     ?>
@@ -367,7 +367,7 @@ session_start();
 
                     
                     if(array_key_exists('buttonDisjunctive', $_POST)){
-                        if($_SESSION["DisjunctiveFlag"]==true){
+                        if($_SESSION["disjunctiveFlag"]==true){
                             $sqlActual = $_SESSION["list"]->offsetGet($_SESSION["list"]->count()-2);
                             $_SESSION["list"]->pop();
                             $sqlActual = parse($sqlActual);
@@ -377,12 +377,12 @@ session_start();
                             $sqlActual = parse($sqlActual);
                             $_SESSION["list"]->push($sqlActual);
                         }
-                        $_SESSION["DisjunctiveFlag"]=true;
+                        $_SESSION["disjunctiveFlag"]=true;
                     }
 
                     
                     if(array_key_exists('buttonCumulative', $_POST)) {
-                        $_SESSION["DisjunctiveFlag"]=false;
+                        $_SESSION["disjunctiveFlag"]=false;
                         $sqlActual = parse($sqlActual);
                         $_SESSION["list"]->push($sqlActual);
                     }
