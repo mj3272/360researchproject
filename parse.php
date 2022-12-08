@@ -4,8 +4,6 @@ include ("distancefunctions.php");
 
 function parse($x) {
     $array = explode(" ", $x);
-    //print_r($array);
-    //echo "<br>";
 
     $location = '';
     $cuisine = '';
@@ -16,7 +14,6 @@ function parse($x) {
 
     //Creating tokens of each
     foreach($array as $value){
-        //echo $value . ' ';
 
         if(str_contains($value, "Location")){
             $location = $location . $value;
@@ -91,7 +88,6 @@ function parse($x) {
         $w ="";
         $or = false;
         $once = 0;
-        //print_r($array);
          
         foreach($array as $token){
             if(str_contains($token, "and")){
@@ -130,7 +126,6 @@ function parse($x) {
         $w ="";
         $or = false;
         $once = 0;
-        //print_r($array);
          
         foreach($array as $token){
             if(str_contains($token, "and")){
@@ -168,7 +163,6 @@ function parse($x) {
         $w ="";
         $or = false;
         $once = 0;
-         //print_r($array);
          
         foreach($array as $token){
             if(str_contains($token, "and")){
@@ -206,7 +200,6 @@ function parse($x) {
         $w ="";
         $or = false;
         $once = 0;
-         //print_r($array);
          
         foreach($array as $token){
             if(str_contains($token, "and")){
@@ -245,8 +238,7 @@ function parse($x) {
         $w ="";
         $or = false;
         $once = 0;
-         //print_r($array);
-         
+      
         foreach($array as $token){
             if(str_contains($token, "and")){
                 $or = false;
@@ -284,7 +276,6 @@ function parse($x) {
         $w ="";
         $or = false;
         $once = 0;
-         //print_r($array);
          
         foreach($array as $token){
             if(str_contains($token, "and")){
@@ -310,14 +301,6 @@ function parse($x) {
     }
     
 
-
-
-
-    //echo "<br>";
-    //echo "<h1>" . $x . "</h1>" ; 
-    //echo "<br>";
-
-   
 return $w;
 
 
