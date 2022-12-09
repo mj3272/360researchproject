@@ -719,7 +719,7 @@ function yelpReviews($yelpReviews){
 }
 
 //Cuisine----------------------------------------------
-// Vietnamese Korean Chinese | Pakistan Tibetan  | French French | American BBQ  Mexican
+// Vietnamese Korean Chinese | Pakistan Tibetan  | Italian French | American BBQ  Mexican
 
 function cuisine($cuisine){
     $cuisine = explode("\"", $cuisine);
