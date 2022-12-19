@@ -3,7 +3,7 @@
 include("QueryEnums.php");
 session_start();
 if(!isset($_SESSION["hasStarted"])){
-    session_start();
+    //session_start();
     $_SESSION["hasStarted"] = true;
     $_SESSION["list"] = new SplDoublyLinkedList();
     $_SESSION["initialContext"] = new SplDoublyLinkedList();
